@@ -1,3 +1,4 @@
+// == equality
 // === - equality operator 
 // !== - not equal 
 // < - less than operator 
@@ -6,8 +7,6 @@
 // Lesson:
 let temp = -30
 let isFreezing = temp <= 32
-console.log(isFreezing)
-
 
 
 // Challenge area
