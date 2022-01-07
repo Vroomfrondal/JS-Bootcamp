@@ -2,7 +2,7 @@
 // Ex: 15/20 -> You got a "C" (75%) (return a string)
 
 function main() {
-    calcGrade(17, 20) // Enter: student's score, total possible score on test  
+    calcGrade(92, 100) // Enter: student's points, total possible points on test  
     determineGradeLetter() 
 }
 
