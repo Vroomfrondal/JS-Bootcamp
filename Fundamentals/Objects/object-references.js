@@ -1,16 +1,16 @@
-let myAccount = {
-    name: "Chris Deleon",
-    expenses: 0, // default
-    income: 0, // default
-}
-
-function addExpense(account, amount) {
-    account.expenses = account.expenses + amount 
-} 
-
-addExpense(myAccount, 2.50) // adds a coffee-expense to certain account
-console.log(myAccount)
-console.log("--------------------")
+//let myAccount = {
+//    name: "Chris Deleon",
+//    expenses: 0, // default
+//    income: 0, // default
+//}
+//
+//function addExpense(account, amount) {
+//    account.expenses = account.expenses + amount 
+//} 
+//
+//addExpense(myAccount, 2.50) // adds a coffee-expense to certain account
+//console.log(myAccount)
+//console.log("--------------------")
 
 
 // Challenge: Income/expense calculator
@@ -28,17 +28,8 @@ getAccountSummary
 resetAccount
 getAccountSummary
 */
-
-
-
 let account1 = {
     name: "Chris",
-    Expenses: 0,
-    Income: 0,
-}
-
-let account2 = {
-    name: "Jeff",
     Expenses: 0,
     Income: 0,
 }
@@ -72,3 +63,7 @@ function addExpense() {
     let expense = 100 // Enter: new expense 
     account1.Expenses =+ expense
 }
+
+
+
+
