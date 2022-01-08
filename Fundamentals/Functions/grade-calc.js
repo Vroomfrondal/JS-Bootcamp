@@ -2,7 +2,7 @@
 // Ex: 15/20 -> You got a "C" (75%) (return a string)
 
 function main() {
-    calcGrade(92, 100) // Enter: student's points, total possible points on test  
+    calcGrade(86, 102) // Enter: student's points, total possible points on test  
     determineGradeLetter() 
 }
 
@@ -22,14 +22,14 @@ function determineGradeLetter() {
     // Determine what Letter corresponds with scoreConvertedToPercentage 
     // Grading scale: 
     if (percentage >= 90 && percentage <= 100) {
-        console.log("You made an A " + "with a " + percentage + "%" + "!")
+        console.log("You made an A " + "with a " + percentage.toFixed(2) + "%" + "!")
     } else if (percentage >= 80 && percentage <= 89) {
-        console.log("You made a B " + "with a " + percentage + "%" + "!")
+        console.log("You made a B " + "with a " + percentage.toFixed(2) + "%" + "!")
     } else if (percentage >= 70 && percentage <= 79) {
-        console.log("You made a C " + "with a " + percentage + "%" + "!")
+        console.log("You made a C " + "with a " + percentage.toFixed(2) + "%" + "!")
     } else if (percentage >= 60 && percentage <= 69) {
-        console.log("You made a D " + "with a " + percentage + "%" + "!")
+        console.log("You made a D " + "with a " + percentage.toFixed(2) + "%" + "!")
     } else if (percentage <= 60) {
-        console.log("You made a F " + "with a " + percentage + "%" + "!")
+        console.log("You made a F " + "with a " + percentage.toFixed(2) + "%" + "!")
     }
 }
