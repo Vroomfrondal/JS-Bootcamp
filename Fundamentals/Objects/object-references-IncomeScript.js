@@ -14,10 +14,9 @@ console.log(" ----------End of Assignment -----------")
 
 
 console.log(" ----------Challenge Area Below -----------")
-
-// Challenge: Income/expense calculator
+// Challenge: Income/expense calculator:
 // Ex: Account for "Chris" has $900. $1000 in income. $100 in expenses (calculates balance)
-// Hint: addIncome, resetAccount, addExpense, getAccountSummary are the required tasks
+// Hint: "addIncome", "resetAccount", "addExpense", "getAccountSummary" are the required tasks
 
 
 let account1 = {
@@ -39,7 +38,6 @@ function main() {
     getAccountSummary(account1)
     resetAccount(account1)
     getAccountSummary(account1)
-    
 }
 main()
 
