@@ -12,7 +12,7 @@
 // Challenge Area
 // create function that takes guess as argument,
 // generates number in random range and determines if guess is correct
-// return true if guess is 1-5 true. false if not
+// return true if guess is 1-5. false if not
 
 function makeGuess(guess) {
     let min = 0
