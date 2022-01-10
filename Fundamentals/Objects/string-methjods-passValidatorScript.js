@@ -27,7 +27,7 @@ console.log(name.trim()) */
 //console.log(isValidPassword('ABC123!@#(&*^')) // should return true cause it satisifies requirement
 //console.log(isValidPassword('asdfgpassword')) // should return false cause it contains password
 
-function isValidPassword1(checkPassword) {
+function isValidPassword(checkPassword) {
     let password = checkPassword
     if (password.length < 8 && password.includes("pass")) {
         console.log("Password is less than 8 characters or contains the word 'pass'")
@@ -36,4 +36,4 @@ function isValidPassword1(checkPassword) {
         return true
     }
 }
-console.log(isValidPassword1("ABC123!@#(&*^'"))
+console.log(isValidPassword("ABC123!@#(&*^'"))
