@@ -30,7 +30,6 @@ function deleteTodo(todos, todoText) {
   const index = todos.findIndex(function (todoItem, index) {
     return todoItem.text.toLowerCase() === todoText.toLowerCase()
   })
-  //console.log(todos[index])
 
   //check if index matches string we're looking for. -1 for match, 0+ for no match
   if (index > -1) {
