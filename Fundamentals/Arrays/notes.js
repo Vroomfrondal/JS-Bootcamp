@@ -22,12 +22,8 @@ function findNote(notes, noteTitle) {
 
 function findNotes(notes, searchText) {
     return notes.filter(function (note, index) {
-        const isTitleMatch = note.title
-            .toLowerCase()
-            .includes(searchText.toLowerCase())
-        const isBodyMatch = note.body
-            .toLowerCase()
-            .includes(searchText.toLowerCase())
+        const isTitleMatch = note.title.toLowerCase().includes(searchText.toLowerCase())
+        const isBodyMatch = note.body.toLowerCase().includes(searchText.toLowerCase())
         return isTitleMatch || isBodyMatch
     })
 }
