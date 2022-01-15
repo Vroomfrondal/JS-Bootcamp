@@ -15,7 +15,7 @@ const notes = [
 ]
 
 function findNote(notes, noteTitle) {
-  return notes.find(function(note, index) {
+  return notes.find(function (note, index) {
     return note.title.toLowerCase() === noteTitle.toLowerCase()
   })
 }
@@ -29,15 +29,3 @@ function findNote(notes, noteTitle) {
 
 const note = findNote(notes, "Intern Checklist")
 console.log(note)
-
-
-
-// console.log(notes.length)
-// console.log(notes)
-// console.log("----------------------------------")
-
-// const index = notes.findIndex(function (note, index) {
-//   console.log(note)
-//   return note.title === "Intern Checklist"
-// })
-// console.log(index)
