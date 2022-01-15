@@ -10,6 +10,13 @@ const notes = ["Note 1", "Note 2", "Note 3"]
 //notes.splice(1, 1) //start at index 1 and remove that item
 //notes.splice(1, 0, "This is the new second item") //adds item to the middle
 
+notes[2] = "this is my new note 3"
 
-//console.log(notes.length)
-//console.log(notes)
+ 
+notes.forEach(function (item, index) {
+    console.log(index)
+    console.log(item)
+}) // function that determines what to do with each item in the array (callback function)
+
+console.log(notes.length)
+console.log(notes)
