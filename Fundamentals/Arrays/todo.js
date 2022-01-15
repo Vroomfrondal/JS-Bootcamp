@@ -15,11 +15,13 @@ console.log(`You have ${todo.length} todo's!`)
 // " 3) the "new item"
 todo.forEach(function(item, index) {
     console.log(` ${index + 1}. ${item}`)
+    
 })
+
+
 console.log(`-----------`)
 
 // for Loop method
-
 for (items = 0; items < todo.length; items++) {
     const indexTracker = items + 1
     console.log(`${indexTracker}. ${todo[items]}`)
