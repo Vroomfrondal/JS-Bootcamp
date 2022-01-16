@@ -48,8 +48,14 @@ function getThingsToDo(todos) {
         //return todoItem.completed === false
     })
 }
-console.log(getThingsToDo(todos))
+
+// console.log(getThingsToDo(todos))
 
 // console.log(todos)
 // deleteTodo(todos, "groceries")
 // console.log(todos)
+
+//sort by "completed" properties, completed on bottom, needs done on top
+// difference from notes: how to determine if one comes before another (uncompleted comes first)
+sortTodos(todos)
+console.log(todos)
