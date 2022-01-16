@@ -29,7 +29,7 @@ function sortNotes(notes) {
     })
 }
 
-//select a specific list, and the note's title you want to find in that list
+//select a specific note list, and the note's title you want to find in that list
 function findNote(notes, noteTitle) {
     return notes.find(function (note, index) {
         return note.title.toLowerCase() === noteTitle.toLowerCase()

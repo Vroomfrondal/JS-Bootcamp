@@ -4,11 +4,11 @@
 
 const todos = [
     {
-        text: "Order Food",
+        text: "Email Dr. Klaus",
         completed: false,
     },
     {
-        text: "Groceries",
+        text: "Get Groceries",
         completed: true,
     },
     {
@@ -16,15 +16,16 @@ const todos = [
         completed: true,
     },
     {
-        text: "Internship",
+        text: "Intership paperwork",
         completed: true,
     },
     {
-        text: "School",
+        text: "Email advisor for grad-appointment",
         completed: false,
     },
 ]
 
+// removes a task from a specific todo list, based on if todoText matches the string of our task
 function deleteTodo(todos, todoText) {
     // find index of todoText you're passing into function argument
     const index = todos.findIndex(function (todoItem, index) {
@@ -38,6 +39,9 @@ function deleteTodo(todos, todoText) {
         console.log("No todo item matches this search.")
     }
 }
+// console.log(todos)
+// deleteTodo(todos, "groceries")
+// console.log(todos)
 
 function getThingsToDo(todos) {
     console.log("Tasks that still need done:")
@@ -48,14 +52,21 @@ function getThingsToDo(todos) {
         //return todoItem.completed === false
     })
 }
-
 // console.log(getThingsToDo(todos))
 
-// console.log(todos)
-// deleteTodo(todos, "groceries")
-// console.log(todos)
+// sorts all tasks within a todo list, incomplete tasks first.
+function sortTodos(todos) {
+    todos.sort(function (a, b) {
+        // A = -1, B = 1, C = 0
+        if (a.completed < b.completed) {
+            return -1
+        } else if (a.completed < b.completed) {
+            return 1
+        } else {
+            return 0
+        }
+    })
+}
 
-//sort by "completed" properties, completed on bottom, needs done on top
-// difference from notes: how to determine if one comes before another (uncompleted comes first)
 sortTodos(todos)
 console.log(todos)
