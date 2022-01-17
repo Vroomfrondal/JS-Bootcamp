@@ -9,6 +9,7 @@
 // 1. add income array to account
 // 2. set up addIncome method -> takes description, amount as arguments.
 // 3. Tweak getAccountSummary to find account balance (income - expenses)
+// Ex. Output: Topher has a balance of $10. $100 in income. $90 in expenses.
 
 // this version is better because it went from tracking a single...
 // number to tracking an object of expenses, therfore more accurate.
@@ -50,10 +51,10 @@ const account = {
     },
 }
 
-// Example Output: Topher has a balance of $10. $100 in income. $90 in expenses.
 // Input (numbers are USD)
 account.addExpense("Rent", 1405)
 account.addExpense("Coffee", 2)
 account.addIncome("Job", 1001)
 account.addIncome("Stock Profits", 3423)
+
 console.log(account.getAccountSummary())
