@@ -1,25 +1,21 @@
-// Challenge 1 Expenses:
-// Expense properties -> description(string), amount(int),
-// Two methods on account:
-// addExpense -> takes two args: description and amount. Add new object onto expenses array in account.
-// getAccountSummary -> no args. Sum up all expenses and
-// print "Topher has $1250 in expenses to calc total.
+// Challenge 1:
+// 1) Model a realworld expense with 2 properties: -> 1) description 2) amount
+// 2) Two methods needed inside object:
+// a) addExpense() -> 2 arguments: description, amount. Adds expense to an account
+// b) getAccountSummary() -> No arguments. Totals up all expenses -> print example: "Chris bOnk has $10 in expenses"
+// hint: to calculate total... forEach() each item in array
 
-//Challenge 2:
-// 1. add income array to account
-// 2. set up addIncome method -> takes description, amount as arguments.
-// 3. Tweak getAccountSummary to find account balance (income - expenses)
-// Ex. Output: Topher has a balance of $10. $100 in income. $90 in expenses.
-
-// this version is better because it went from tracking a single...
-// number to tracking an object of expenses, therfore more accurate.
+// Challenge 2:
+// 1) create addIncome() method
+// 2) tweak getAccountSummary() to include income
+// 3) calculate balance in getAccountSummary and add it to a template string
 
 const account = {
-    name: "Topher Deleon",
+    name: "Chris bOnk",
     expenses: [],
     incomes: [],
     addExpense: function (description, amount) {
-        // adds "description" & "amount" objects to "expenses" array within account
+        //
         this.expenses.push({
             description: description,
             amount: amount,
@@ -32,29 +28,37 @@ const account = {
         })
     },
     getAccountSummary: function () {
-        let sumOfExpenses = 0
-        let sumOfIncomes = 0
-        let balance = 0
+        let totalExpenses = 0
+        let totalIncomes = 0
+        let accountBalance = 0
 
-        //calculate total expenses & incomes based on properties in object-method
-        this.expenses.forEach(function (expense) {
-            sumOfExpenses += expense.amount
+        // calculate expenses & income based on arrays in object
+        this.expenses.forEach(function (expenseSource) {
+            totalExpenses += expenseSource.amount
         })
-        this.incomes.forEach(function (income) {
-            sumOfIncomes += income.amount
+        this.incomes.forEach(function (incomeSource) {
+            totalIncomes += incomeSource.amount
         })
 
-        //calculate balance
-        balance = sumOfIncomes - sumOfExpenses
+        // balance logic
+        accountBalance = totalIncomes - totalExpenses
 
-        return `${account.name} has a balance of $${balance.toLocaleString()}. $${sumOfIncomes.toLocaleString()} in income & $${sumOfExpenses.toLocaleString()} in expenses.`
+        // output
+        return `${account.name} has a balance of $${accountBalance.toLocaleString()}. $${totalExpenses.toLocaleString()} in expenses and $${totalIncomes.toLocaleString()} in income.`
     },
 }
 
-// Input (numbers are USD)
-account.addExpense("Rent", 1405)
-account.addExpense("Coffee", 2)
-account.addIncome("Job", 1001)
-account.addIncome("Stock Profits", 3423)
+// input:
+let a = performance.now()
 
+account.addExpense("Rent", 1050)
+account.addExpense("Electric", 123)
+account.addExpense("Wifi", 75)
+account.addIncome("Unrealized stock gains Jan. 2022", 967)
+account.addIncome("Snoopy's Paychecks Jan. 2022", 1500)
 console.log(account.getAccountSummary())
+
+let b = performance.now()
+let c = b - a
+
+console.log(`Runtime: ${c.toFixed(3)} ms.`)
