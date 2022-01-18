@@ -1,15 +1,34 @@
-let a = performance.now()
-// Loop over each paragraph and delete words that contain "the"
-let allParagraphs = document.querySelectorAll("p")
+const todos = [
+    {
+        text: "Email Dr. Klaus",
+        completed: false,
+    },
+    {
+        text: "Get Groceries",
+        completed: true,
+    },
+    {
+        text: "Workout",
+        completed: true,
+    },
+    {
+        text: "Intership paperwork",
+        completed: true,
+    },
+    {
+        text: "Email advisor for grad-appointment",
+        completed: false,
+    },
+]
 
-allParagraphs.forEach(function (paragraph) {
-    if (paragraph.textContent.toLowerCase().includes("the")) {
-        paragraph.remove()
-        console.log(`Items removed: ${paragraph}`)
-    }
+const unfinishedTodos = todos.filter(function (todo) {
+    return !todo.completed
 })
 
-let b = performance.now()
-let c = b - a
+const newTodo = document.createElement("p")
+newTodo.textContent = `You have ${unfinishedTodos.length} things to do`
+document.querySelector("body").appendChild(newTodo)
 
-console.log(`Script runtime: ${c.toFixed(3)} ms.`)
+// 1) print summary message how many todos they still need to complete. "You have 2 todos left" (put it in paragraph element)
+
+// 2) add p for each todo above (use text value)
