@@ -25,7 +25,7 @@ const unfinishedTodos = todos.filter(function (todo) {
     return !todo.completed
 })
 
-const newTodo = document.createElement("p")
+const newTodo = document.createElement("h1")
 newTodo.textContent = `You have ${unfinishedTodos.length} things to do`
 document.querySelector("body").appendChild(newTodo)
 
