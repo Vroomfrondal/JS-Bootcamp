@@ -22,15 +22,15 @@ const multiParagraphs = document.querySelectorAll("p")
 
 multiParagraphs.forEach(function (paragraph) {
     //rename text in paragraph tags
-    paragraph.textContent = "Encrypted Text"
-
-    //print text to console
+    paragraph.textContent = "*********"
     //console.log(paragraph.textContent)
-
     //paragraph.remove()
 })
 
-// Create a new paragraph in our html page. 3 step process:
+// Add a new element:
+// 1) select an area
 const newParagraph = document.createElement("p")
-newParagraph.textContent = "This is a new element containing text. Created in Js."
+// 2) give it content
+newParagraph.textContent = "Newest element from JS"
+// 3)select body and append new text, newParagraph (step 2)
 document.querySelector("body").appendChild(newParagraph)

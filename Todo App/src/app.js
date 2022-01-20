@@ -1,34 +1,48 @@
 const todos = [
     {
-        text: "Email Dr. Klaus",
+        text: "Go to work",
         completed: false,
     },
     {
-        text: "Get Groceries",
+        text: "Go to internship",
         completed: true,
     },
     {
-        text: "Workout",
+        text: "Go to the gym",
         completed: true,
     },
     {
-        text: "Intership paperwork",
-        completed: true,
-    },
-    {
-        text: "Email advisor for grad-appointment",
+        text: "Use the car wash",
         completed: false,
+    },
+    {
+        text: "Doctors appointment",
+        completed: false,
+    },
+    {
+        text: "Project Proposal",
+        completed: true,
     },
 ]
 
-const unfinishedTodos = todos.filter(function (todo) {
-    return !todo.completed
+// count false properties & keep track of that number
+let todoCount = 0
+todos.forEach(function (todo) {
+    if (todo.completed == false) {
+        todoCount += 1
+    }
 })
 
-const newTodo = document.createElement("h1")
-newTodo.textContent = `You have ${unfinishedTodos.length} things to do`
-document.querySelector("body").appendChild(newTodo)
+// Let user know how many todos they have left
+let summaryMessage = document.createElement("h2")
+summaryMessage.textContent = `You have ${todoCount} tasks left.`
+document.querySelector("body").appendChild(summaryMessage)
 
-// 1) print summary message how many todos they still need to complete. "You have 2 todos left" (put it in paragraph element)
-
-// 2) add p for each todo above (use text value)
+// dynamically populate html paragraphs with todo items that are incompleted
+todos.forEach(function (todo) {
+    if (todo.completed == false) {
+        const addTodoTask = document.createElement("p")
+        addTodoTask.textContent = todo.text
+        document.querySelector("body").appendChild(addTodoTask)
+    }
+})
