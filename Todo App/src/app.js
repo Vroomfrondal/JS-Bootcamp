@@ -1,35 +1,48 @@
 const todos = [
     {
-        text: "Email Dr. Klaus",
+        text: "Go to work",
         completed: false,
     },
     {
-        text: "Get the Groceries",
+        text: "Go to internship",
         completed: true,
     },
     {
-        text: "Go to the park",
+        text: "Go to the gym",
         completed: true,
     },
     {
-        text: "The Intership paperwork",
-        completed: true,
-    },
-    {
-        text: "Email advisor for grad-appointment",
+        text: "Use the car wash",
         completed: false,
+    },
+    {
+        text: "Doctors appointment",
+        completed: false,
+    },
+    {
+        text: "Project Proposal",
+        completed: true,
     },
 ]
 
-// remove each <p> with "the"
-// itterate over each item in array and remove "the". query selector? foreach?includes?
+// count false properties & keep track of that number
+let todoCount = 0
+todos.forEach(function (todo) {
+    if (todo.completed == false) {
+        todoCount += 1
+    }
+})
 
-// Select ALL paragraph tags
-const contentOfParagraphs = document.querySelectorAll("p")
+// Let user know how many todos they have left
+let summaryMessage = document.createElement("h2")
+summaryMessage.textContent = `You have ${todoCount} tasks left.`
+document.querySelector("body").appendChild(summaryMessage)
 
-// itterate over each item in array if it contains "the".
-contentOfParagraphs.forEach(function (paragraph) {
-    if (paragraph.textContent.includes("the")) {
-        paragraph.remove()
+// dynamically populate html paragraphs with todo items that are incompleted
+todos.forEach(function (todo) {
+    if (todo.completed == false) {
+        const addTodoTask = document.createElement("p")
+        addTodoTask.textContent = todo.text
+        document.querySelector("body").appendChild(addTodoTask)
     }
 })
