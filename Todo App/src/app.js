@@ -4,15 +4,15 @@ const todos = [
         completed: false,
     },
     {
-        text: "Get Groceries",
+        text: "Get the Groceries",
         completed: true,
     },
     {
-        text: "Workout",
+        text: "Go to the park",
         completed: true,
     },
     {
-        text: "Intership paperwork",
+        text: "The Intership paperwork",
         completed: true,
     },
     {
@@ -21,14 +21,15 @@ const todos = [
     },
 ]
 
-const unfinishedTodos = todos.filter(function (todo) {
-    return !todo.completed
+// remove each <p> with "the"
+// itterate over each item in array and remove "the". query selector? foreach?includes?
+
+// Select ALL paragraph tags
+const contentOfParagraphs = document.querySelectorAll("p")
+
+// itterate over each item in array if it contains "the".
+contentOfParagraphs.forEach(function (paragraph) {
+    if (paragraph.textContent.includes("the")) {
+        paragraph.remove()
+    }
 })
-
-const newTodo = document.createElement("h1")
-newTodo.textContent = `You have ${unfinishedTodos.length} things to do`
-document.querySelector("body").appendChild(newTodo)
-
-// 1) print summary message how many todos they still need to complete. "You have 2 todos left" (put it in paragraph element)
-
-// 2) add p for each todo above (use text value)
