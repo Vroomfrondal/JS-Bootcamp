@@ -25,7 +25,7 @@ const todos = [
     },
 ]
 
-// count false properties & keep track of that number
+// count false todo properties & keep track of that number
 let todoCount = 0
 todos.forEach(function (todo) {
     if (todo.completed == false) {
@@ -45,4 +45,9 @@ todos.forEach(function (todo) {
         addTodoTask.textContent = todo.text
         document.querySelector("body").appendChild(addTodoTask)
     }
+})
+
+// Listen for new todo button creation click
+let todoButton = document.getElementById("todo-button").addEventListener("click", function (e) {
+    console.log("New Todo button pressed")
 })
