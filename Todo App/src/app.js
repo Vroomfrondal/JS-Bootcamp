@@ -47,9 +47,7 @@ todos.forEach(function (todo) {
     }
 })
 
-// Listen for new todo button creation click
-let todoButton = document.getElementById("todo-button").addEventListener("click", function (e) {
-    console.log("New Todo button pressed")
+// Listen for new todo button event
+document.querySelector("#new-todo-button").addEventListener("click", function (e) {
+    console.log("New todo button clicked.")
 })
-
-//
