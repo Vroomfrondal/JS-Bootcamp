@@ -13,6 +13,28 @@ const notes = [
     },
 ]
 
+const filters = {
+    searchText: "",
+}
+
+// return a new array with notes that are included in our filter object, searchText: ""
+function renderNotes(notes, filters) {
+    const filteredNotes = notes.filter(function (note) {
+        return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
+    })
+
+    // clear notes div before adding new filteredNotes to list
+    document.querySelector("#filtered-notes-by-searchText").innerHTML = ""
+
+    //itterate over filtered notes array and create new element for each note title
+    filteredNotes.forEach(function (note) {
+        const noteElement = document.createElement("p")
+        noteElement.textContent = note.title
+        document.querySelector("#filtered-notes-by-searchText").appendChild(noteElement)
+    })
+}
+renderNotes(notes, filters)
+
 //add new note button
 document.querySelector("#create-note-button").addEventListener("click", function (e) {
     e.target.textContent = "The button was clicked."
@@ -27,7 +49,8 @@ document.querySelector("#remove-all-notes-button").addEventListener("click", fun
     })
 })
 
-// input text box
+// event listener to update filteredNotes and re Render function
 document.querySelector("#new-note-input-textbox").addEventListener("input", function (e) {
-    console.log(e.target.value) //targets "value" browser object to check live-view
+    filters.searchText = e.target.value
+    renderNotes(notes, filters)
 })
