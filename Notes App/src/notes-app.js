@@ -26,3 +26,8 @@ document.querySelector("#remove-all-notes-button").addEventListener("click", fun
         console.log("All notes removed.")
     })
 })
+
+// input text box
+document.querySelector("#new-note-input-textbox").addEventListener("input", function (e) {
+    console.log(e.target.value) //targets "value" browser object to check live-view
+})
