@@ -35,6 +35,12 @@ function renderNotes(notes, filters) {
 }
 renderNotes(notes, filters)
 
+// event listener to update filteredNotes and re Render function
+document.querySelector("#new-note-input-textbox").addEventListener("input", function (e) {
+    filters.searchText = e.target.value
+    renderNotes(notes, filters)
+})
+
 //add new note button
 document.querySelector("#create-note-button").addEventListener("click", function (e) {
     e.target.textContent = "The button was clicked."
@@ -47,10 +53,4 @@ document.querySelector("#remove-all-notes-button").addEventListener("click", fun
         note.remove()
         console.log("All notes removed.")
     })
-})
-
-// event listener to update filteredNotes and re Render function
-document.querySelector("#new-note-input-textbox").addEventListener("input", function (e) {
-    filters.searchText = e.target.value
-    renderNotes(notes, filters)
 })
