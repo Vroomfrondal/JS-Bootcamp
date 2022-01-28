@@ -51,3 +51,8 @@ todos.forEach(function (todo) {
 document.querySelector("#new-todo-button").addEventListener("click", function (e) {
     console.log("New todo button clicked.")
 })
+
+//listen for change on new todo input text box
+document.querySelector("#new-todo-text-input").addEventListener("input", function (e) {
+    console.log(e.target.value)
+})
