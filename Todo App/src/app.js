@@ -61,23 +61,6 @@ function renderTodos(todos, filters) {
             document.querySelector("#filtered-todos-by-searchText").appendChild(addTodoTask)
         }
     })
-
-    // Apend todo list with input from newTodo HTML form
-    document.querySelector("#new-todo").addEventListener("submit", function (e) {
-        //prevent form from reloading on sumbit, and store user input in variable
-        e.preventDefault()
-        let todoToBeAdded = e.target.newTodo.value
-
-        //append todos array with user form text-input from above
-        todos.push({
-            text: `${todoToBeAdded}`,
-            completed: false,
-        })
-
-        // clear input form and re-render todo list
-        e.target.newTodo.value = ""
-        renderTodos(todos, filters)
-    })
 }
 renderTodos(todos, filters)
 
@@ -85,5 +68,21 @@ renderTodos(todos, filters)
 document.querySelector("#search-text").addEventListener("input", function (e) {
     // e.target.value targets the value which in this case is a string of the searchText
     filters.searchText = e.target.value
+    renderTodos(todos, filters)
+})
+
+// Apend todo list with input from newTodo HTML form
+document.querySelector("#new-todo").addEventListener("submit", function (e) {
+    //prevent page reload on submit
+    e.preventDefault()
+
+    //append todos array with user form text-input from above
+    todos.push({
+        text: e.target.newTodo.value,
+        completed: false,
+    })
+
+    // clear input form and re-render todo list
+    e.target.newTodo.value = ""
     renderTodos(todos, filters)
 })
