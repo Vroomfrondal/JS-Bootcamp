@@ -13,15 +13,7 @@ const todos = [
     },
     {
         text: "Use the car wash",
-        completed: false,
-    },
-    {
-        text: "Doctors appointment",
-        completed: false,
-    },
-    {
-        text: "Project Proposal",
-        completed: false,
+        completed: true,
     },
 ]
 
@@ -69,6 +61,19 @@ function renderTodos(todos, filters) {
             document.querySelector("#filtered-todos-by-searchText").appendChild(addTodoTask)
         }
     })
+    // Apend todo list with input from newTodo HTML form
+    document.querySelector("#new-todo").addEventListener("submit", function (e) {
+        e.preventDefault()
+        console.log(e.target.newTodo.value)
+        e.target.newTodo.value = ""
+
+        //manipulate todos array with user form text-input from above
+        todos.push({
+            text: "test",
+            completed: false,
+        })
+        renderTodos(todos, filters)
+    })
 }
 renderTodos(todos, filters)
 
@@ -78,18 +83,3 @@ document.querySelector("#search-text").addEventListener("input", function (e) {
     filters.searchText = e.target.value
     renderTodos(todos, filters)
 })
-
-// Listen for new todo button event
-document.querySelector("#new-todo-button").addEventListener("click", function (e) {
-    console.log("New todo button clicked.")
-})
-
-//listen for change on new todo input text box
-document.querySelector("#new-todo-text-input").addEventListener("input", function (e) {
-    console.log(e.target.value)
-})
-
-// 1. create new div for filtered todos (keep on bottom of page)
-// 2. setup filters object with 1 property: "searchText".
-//  2a. Create new filter input to change property above (hint: attributes + event listener to watch for changes, when changed, update filters)
-// 3. Create renderTodos() render intial data and then re render latest filtered data (based on searchText)
