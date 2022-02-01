@@ -61,17 +61,21 @@ function renderTodos(todos, filters) {
             document.querySelector("#filtered-todos-by-searchText").appendChild(addTodoTask)
         }
     })
+
     // Apend todo list with input from newTodo HTML form
     document.querySelector("#new-todo").addEventListener("submit", function (e) {
+        //prevent form from reloading on sumbit, and store user input in variable
         e.preventDefault()
-        console.log(e.target.newTodo.value)
-        e.target.newTodo.value = ""
+        let todoToBeAdded = e.target.newTodo.value
 
-        //manipulate todos array with user form text-input from above
+        //append todos array with user form text-input from above
         todos.push({
-            text: "test",
+            text: `${todoToBeAdded}`,
             completed: false,
         })
+
+        // clear input form and re-render todo list
+        e.target.newTodo.value = ""
         renderTodos(todos, filters)
     })
 }
