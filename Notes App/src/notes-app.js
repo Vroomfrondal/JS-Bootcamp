@@ -47,10 +47,9 @@ document.querySelector("#create-note-button").addEventListener("click", function
     console.log("Create new note button clicked.")
 })
 
-// remove ALL notes
-document.querySelector("#remove-all-notes-button").addEventListener("click", function () {
-    document.querySelectorAll(".note").forEach(function (note) {
-        note.remove()
-        console.log("All notes removed.")
-    })
+// sumbit new data via HTML form input & submit button
+document.querySelector("#name-form").addEventListener("submit", function (e) {
+    e.preventDefault() // stops page refresh
+    console.log(e.target.firstName.value)
+    e.target.firstName.value = "" //wipes data after sumbitting form
 })
