@@ -47,9 +47,6 @@ document.querySelector("#create-note-button").addEventListener("click", function
     console.log("Create new note button clicked.")
 })
 
-// sumbit new data via HTML form input & submit button
-document.querySelector("#name-form").addEventListener("submit", function (e) {
-    e.preventDefault() // stops page refresh
-    console.log(e.target.firstName.value)
-    e.target.firstName.value = "" //wipes data after sumbitting form
+document.querySelector("#for-fun").addEventListener("change", function (e) {
+    console.log(e.target.checked)
 })
