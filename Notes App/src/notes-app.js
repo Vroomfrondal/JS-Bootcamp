@@ -17,6 +17,19 @@ const filters = {
     searchText: "",
 }
 
+// const user = {
+//     name: "Chris",
+//     age: 23,
+// }
+
+// const userJSON = JSON.stringify(user)
+// console.log(userJSON)
+// localStorage.setItem("user", userJSON)
+
+const userJSON = localStorage.getItem("user")
+const user = JSON.parse(userJSON)
+console.log(`${userJSON.name} is ${userJSON.age}`)
+
 // return a new array with notes that are included in our filter object, searchText: ""
 function renderNotes(notes, filters) {
     const filteredNotes = notes.filter(function (note) {
