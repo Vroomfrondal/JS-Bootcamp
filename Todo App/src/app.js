@@ -5,15 +5,15 @@ const todos = [
     },
     {
         text: "Cook food",
-        completed: false,
+        completed: true,
     },
     {
         text: "Go to the gym",
-        completed: false,
+        completed: true,
     },
     {
         text: "Car Wash",
-        completed: true,
+        completed: false,
     },
     {
         text: "Internship",
@@ -28,13 +28,14 @@ const filters = {
 
 function renderTodos(todos, filters) {
     // return new array with todos that have text including our filtered word
-    let filteredTodos = todos.filter(function (todo) {
+    const filteredTodos = todos.filter(function (todo) {
         const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
         const hideCompletedMatch = !filters.hideCompleted || !todo.completed
 
         return searchTextMatch && hideCompletedMatch
     })
 
+    // keep track of todos with incompleted property within todo Array
     const incompleteTodos = filteredTodos.filter(function (todo) {
         return !todo.completed
     })
@@ -80,6 +81,6 @@ document.querySelector("#new-todo").addEventListener("submit", function (e) {
 
 // filter completed task when #hide-completed-button is checked
 document.querySelector("#hide-completed-button").addEventListener("change", function (e) {
-    filters.hideCompleted = e.target.value
+    filters.hideCompleted = e.target.checked
     renderTodos(todos, filters)
 })

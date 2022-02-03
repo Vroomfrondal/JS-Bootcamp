@@ -47,6 +47,7 @@ document.querySelector("#create-note-button").addEventListener("click", function
     console.log("Create new note button clicked.")
 })
 
-document.querySelector("#for-fun").addEventListener("change", function (e) {
-    console.log(e.target.checked)
+// drop down list to sort by certain value
+document.querySelector("#filter-by-dropdown").addEventListener("change", function (e) {
+    console.log(e.target.value)
 })

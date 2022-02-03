@@ -16,14 +16,15 @@
 <body class="main">
     <h1 class="Title">Notes App</h1>
     <h2>Track your daily tasks and get organized!</h2>
-
-    <input id="new-note-input-textbox" type="text" placeholder="Filter notes by text">    
+    <input id="new-note-input-textbox" type="text" placeholder="Filter notes by text">   
+    <select id="filter-by-dropdown">
+        <option value="byEdited">Sort by last edited</option>
+        <option value="byCreated">Sort by recently created</option>
+        <option value="alphabetical">Sort alphabetically</option>
+    </select>
     <div id="filtered-notes-by-searchText"></div>
     <button id="create-note-button">Create New Note</button>
 
-    <label>
-        <input id="for-fun" type="checkbox"> Check me
-    </label>
 </body>
 
 </html>
