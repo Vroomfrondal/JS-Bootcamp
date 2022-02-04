@@ -1,29 +1,14 @@
-const todos = [
-    {
-        text: "Go to work",
-        completed: false,
-    },
-    {
-        text: "Cook food",
-        completed: true,
-    },
-    {
-        text: "Go to the gym",
-        completed: true,
-    },
-    {
-        text: "Car Wash",
-        completed: false,
-    },
-    {
-        text: "Internship",
-        completed: false,
-    },
-]
+let todos = []
 
 const filters = {
     searchText: "",
     hideCompleted: false,
+}
+
+const todoJSON = localStorage.getItem("todos")
+
+if (todoJSON !== null) {
+    todos = JSON.parse(todoJSON)
 }
 
 function renderTodos(todos, filters) {
@@ -51,7 +36,13 @@ function renderTodos(todos, filters) {
     // itterate over filtered notes array and create new element for each note title
     filteredTodos.forEach(function (todo) {
         const newTodoElement = document.createElement("p")
-        newTodoElement.textContent = todo.text
+
+        if (todo.text.length > 0) {
+            newTodoElement.textContent = todo.text
+        } else {
+            newTodoElement.textContent = "New Todo"
+        }
+
         document.querySelector("#filtered-todos-by-searchText").appendChild(newTodoElement)
     })
 }
@@ -73,10 +64,9 @@ document.querySelector("#new-todo").addEventListener("submit", function (e) {
         text: e.target.newTodo.value,
         completed: false,
     })
-
-    // clear input form and re-render todo list
+    localStorage.setItem("todos", JSON.stringify(todos))
     renderTodos(todos, filters)
-    e.target.newTodo.value = ""
+    e.target.newTodo.value = "" // newTodo is the "name" of the input in HTML
 })
 
 // filter completed task when #hide-completed-button is checked
