@@ -12,7 +12,7 @@ function getSavedTodos() {
 
 // Save Todo list to localStorage
 function saveTodos() {
-    console.log("Saving Notes to local storage.")
+    console.log("Saving notes to local storage.")
     localStorage.setItem("todos", JSON.stringify(todos))
 }
 
@@ -62,6 +62,9 @@ function generateTodoDOM(todo) {
 
     // Setup todo Checkbox
     checkbox.setAttribute("type", "checkbox")
+    if (todo.completed) {
+        checkbox.checked = true
+    }
     todoElement.appendChild(checkbox)
 
     // Setup text
@@ -73,9 +76,9 @@ function generateTodoDOM(todo) {
     textElement.appendChild(deleteButton)
     deleteButton.addEventListener("click", function () {
         removeTodo(todo.id)
+        saveTodos(todos)
         renderTodos(todos, filters)
     })
-
     return todoElement
 }
 
