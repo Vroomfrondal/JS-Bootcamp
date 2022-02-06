@@ -41,6 +41,18 @@ function renderTodos(todos, filters) {
     })
 }
 
+//Remove todo (button in generateTodoDOM())
+function removeTodo(id) {
+    const todoIndex = todos.findIndex(function (todo) {
+        return todo.id === id
+    })
+
+    if (todoIndex > -1) {
+        console.log(`Todo with index of "${todoIndex}" has been removed.`)
+        todos.splice(todoIndex, 1)
+    }
+}
+
 // Generate DOM elements for individual notes inside renderNotes()
 function generateTodoDOM(todo) {
     const todoElement = document.createElement("div")
@@ -59,6 +71,10 @@ function generateTodoDOM(todo) {
     // Setup Delete button
     deleteButton.textContent = "Del"
     textElement.appendChild(deleteButton)
+    deleteButton.addEventListener("click", function () {
+        removeTodo(todo.id)
+        renderTodos(todos, filters)
+    })
 
     return todoElement
 }
