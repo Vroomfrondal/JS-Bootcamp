@@ -203,6 +203,13 @@ Learned:
             • create DOM element such as document.createElement("p", "div", or "span")
             • element.appendChild(DOMelement) 
 
+    • Setting up a third-party library
+        • 
+        •
+        •
+    •
+
+
 
 
        
