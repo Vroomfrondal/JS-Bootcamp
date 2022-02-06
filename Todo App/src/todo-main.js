@@ -20,6 +20,7 @@ document.querySelector("#new-todo").addEventListener("submit", function (e) {
 
     //append todos array with user form text-input from above
     todos.push({
+        id: uuidv4(), //unique identifier from external library
         text: e.target.newTodo.value,
         completed: false,
     })

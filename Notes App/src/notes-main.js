@@ -9,6 +9,7 @@ renderNotes(notes, filters)
 // Push new note to notes object array -> store that object in local storage ->
 document.querySelector("#create-note-button").addEventListener("click", function (e) {
     notes.push({
+        id: uuidv4(),
         title: "",
         body: "",
     })
