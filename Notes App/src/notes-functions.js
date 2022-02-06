@@ -11,20 +11,33 @@ function getSavedNotes() {
     }
 }
 
-// generate DOM structure for a new note
-function generateNoteDOM(note) {
-    const noteElement = document.createElement("p")
+// Save notes to local storage
+function saveNotes(notes) {
+    localStorage.setItem("notes", JSON.stringify(notes))
+}
 
+// Generate DOM structure for a new note
+function generateNoteDOM(note) {
+    const noteElement = document.createElement("div")
+    const textElement = document.createElement("span")
+    const button = document.createElement("button")
+
+    // Setup the remove note button
+    button.textContent = "Del"
+    noteElement.appendChild(button)
+
+    // Setup the note title text
     if (note.title.length > 0) {
-        noteElement.textContent = note.title
+        textElement.textContent = note.title
     } else {
-        noteElement.textContent = "New Note"
+        textElement.textContent = "New Note"
     }
+
+    noteElement.appendChild(textElement)
     return noteElement
 }
 
 // render application notes
-// return a new array with notes that are included in our filter object, searchText: ""
 function renderNotes(notes, filters) {
     const filteredNotes = notes.filter(function (note) {
         return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
