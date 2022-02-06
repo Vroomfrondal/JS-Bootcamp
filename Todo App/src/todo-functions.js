@@ -3,7 +3,7 @@ function getSavedTodos() {
     const todoJSON = localStorage.getItem("todos")
 
     if (todoJSON !== null) {
-        console.log("Fetched notes from localStorage")
+        console.log("Fetched notes from local storage")
         return JSON.parse(todoJSON)
     } else {
         return []
@@ -33,7 +33,6 @@ function renderTodos(todos, filters) {
 
     // clear div to avoid duplicate dynamic-html element creations
     document.querySelector("#filtered-todos-by-searchText").innerHTML = ""
-
     document.querySelector("#filtered-todos-by-searchText").appendChild(generateSummaryDOM(incompleteTodos))
 
     // itterate over filtered notes array and create new element for each note title
@@ -44,9 +43,24 @@ function renderTodos(todos, filters) {
 
 // Generate DOM elements for individual notes inside renderNotes()
 function generateTodoDOM(todo) {
-    const newTodoElement = document.createElement("p")
-    newTodoElement.textContent = todo.text
-    return newTodoElement
+    const todoElement = document.createElement("div")
+    const checkbox = document.createElement("input")
+    const textElement = document.createElement("span")
+    const deleteButton = document.createElement("button")
+
+    // Setup todo Checkbox
+    checkbox.setAttribute("type", "checkbox")
+    todoElement.appendChild(checkbox)
+
+    // Setup text
+    textElement.textContent = todo.text
+    todoElement.appendChild(textElement)
+
+    // Setup Delete button
+    deleteButton.textContent = "Del"
+    textElement.appendChild(deleteButton)
+
+    return todoElement
 }
 
 // Get DOM elements for a list summary

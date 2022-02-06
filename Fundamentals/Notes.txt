@@ -1,0 +1,217 @@
+Currently on: Sec. 8 - #1
+[Need] Rewatch Video s7 56 - filtering user input
+[Need] Rewatch Video s7 57 - Filtering user input challenege
+
+Learned:
+
+1) Section 3:
+    • Variables: initilization & decleration 
+    • Booleans: True / False 
+    • If-Statements:
+        if () {
+
+        }
+         
+    • Advanced if-statements:
+        if (true) {
+
+        } else if {true} {
+
+        } else {
+
+        }
+
+    • "And" and "Or" Operator: 
+        && , ||
+
+    • Variable Scope
+        Lexical, Local, Global  
+
+2) Section 4 (Functions)
+    • Function basics syntax
+    • Undefined & null keyword
+    • Arguments to Functions:
+        function(num) {
+            return num
+        }
+        function(20)
+
+    • Template strings?   
+    • finished grade calculator example exercises script with only 1 google search. 
+
+3) Section 5 (JS Objects)
+    • let objectName = {
+        name: "toph",
+        age: 23,
+        gender: "M"
+    }
+    
+    • Methods (created resturaunt checker script, password validator script, and guessing game script): 
+        let restaraunt = { 
+            name: "Snoopy's",
+            guestCapacity: 200,
+            currentGuestCount: 0,
+            checkAvailability: function(partySize) {
+                console.log(partySize)
+            seatParty: function(partySize) {
+                this.currentGuestCount = this.currentGuestCount + part
+                }
+            }
+        }
+
+    • "this" is a keyword to access a method's property, within an object. Its quite confusing. check object-methods.js
+    **check DOCUMENTATION "MDN DOCS"**
+    • string methods (check documentation & object-methods js):
+        .length property (checks variable char length)
+        .toUpperCase
+        .toUpperCase
+        .includes (checks to see if string includes keyword)
+        .Trim (for data sanitation. removes extra spaces)
+     • num methods (check documentation & number-methods js):
+        .toFixed() (returns specific decimal amount)
+        Math.round() (rounds number)
+        Math.random() (generates random number between 0 and 1)
+     • const variable   
+     --End of fundamentals--
+
+4) Section 5: Array
+
+    • Array manipulation:
+        • pop() (removes last element from array)
+        • push() (adds element to array)
+        • shift() (removes first element from array)
+        • unshift() (removes last element from array)
+        • splice() (add elements to middle or remove elements anywhere in our array)
+
+    • Looping over arrays
+        • forEach(item, index) - for looping through an array's index (check todo.js)
+            • is a Callback function (function within another function)
+                • forEach(function () {
+                    console.log("hi")
+                }) 
+
+    • For Loop 
+        • for (i = 0; i < 5; i++) {
+            console.log("Hi)
+        }
+
+    • Finding items within an array (deleteTodo() on todo.js)
+        • findIndex() - check notes/todo.js
+        • You spent two hours on the deleteTodo function that searches for an string on our todo array, and removes that particular item.
+
+    • Filtering Arrays (getThingsToDo() on todo.js)
+        • .filter() finds items in array that our logic asks for, and stores in another empty array 
+
+    • Sorting Arrays
+        • array.sort() - (returns sorted, ascending-order array)
+            • notes.sort(function(a, b) {
+                (code goes here)
+            })
+
+    • Created upgraded Expense tracker
+    
+5) Section 7: JS in the Webbrowser
+    • DOM - Document Object Model (for html manipulation)
+        • document.querySelector("p") 
+        • document.querySelectorAll("p")
+        • element.textContent (selects texts in element you're grabbing)
+        • element.remove() (removes element selected)
+
+        • .appendChild() (adding elements to DOM)
+            • 1: variable with document.QuerySelector()
+            • 2: select .textContent and set to new value
+            • 3: add to html doucment - document.querySelector("body").appendChild()
+
+        • const contentOfParagraphs = document.querySelectorAll("p")
+            // itterate over each item in array if it contains "the".
+                contentOfParagraphs.forEach(function (paragraph) {
+                if (paragraph.textContent.includes("the")) {
+                paragraph.remove()
+                }
+            }) 
+
+        • .createElement
+
+    • User Input - event handlers
+        • <button id="new-button"> </button> in html
+        • .addEventListener("")
+        • document.getElementById("create-note-button").addEventListener("click", function (e) {
+            e.target.textContent = "The button was clicked."
+                })
+        • # for targeting ID's
+        • . for targeting classes
+        • document.querySelector("#new-todo-button").addEventListener("click", function (e) {
+            console.log("New todo button clicked.")
+        })
+        • e.target => target value of 
+
+    • Text inputs and Live data Filtering
+        • <input> for user input
+        • html => <input id="" class="" placeholder="placeholder text">
+        • can add event listener "Change" or "input" to see live user input
+
+    • Rendering filtered data (Challenge video 57 was cancer)
+        • set up a function that allows user to return notes based on keyword
+        • .innerHTML = set new html value 
+
+    • Forms & formed submitions via input on html
+        • <form> 
+            <input name=""> 
+            <button> 
+          </form>
+        • e.preventDefault() - prevents page from reloading on form/sumbit click
+        • e.target.element.value
+
+    • Checkboxes
+        • <input type="Checkbox"> (put inside <label> for text interaction)
+        • function (e) => event argument for embedded function
+        • e.target.checked => target the e argument in function and check of checkbox is checked (boolean return)
+        • unable to solve Challenge
+        • solved. bug was: e.target.value to e.target.checked in event handlers
+
+    • Dropdowns
+        • <select>
+            <option> list option </option>
+         </select>
+        •
+    •
+6) Section 8
+    • C.R.U.D - Create data, Read data, 
+    • Saving data in local storage I (string-based data)
+    • JSON - way to convert objects into strings for use with localStorage
+        • localStorage.setItem("key", value) Create data: 
+        • localStorage.getItem("key") - read item from browser cache
+        • localStorage.removeItem("key")
+        • localStorage.clear() - clears stored browser cache
+            • JSON.stringify(object) -  take in object/array and return string'd version
+            • JSON.parse(JSON.stringify(object)) - take in string and covert to object
+
+    • Splitting up our Application Code
+        • new <script> file in html. MUST BE IN ORDER
+        • all js files share single global name space. one array can be accessed in different file
+
+    • Debugging
+        • debugger -> keyword that stops code to explore code in dev tools
+        • console.log() for days
+
+    • Complex DOM rendering
+        • dynamically created html elements like a div and span to host button + note text
+        • dynamically create checkbox with .setAttribute("type", "checkbox")
+            • must have dynamic Div
+
+        • Steps to dynamically add in a div, input with button, and checkbox (for todo list)
+            • create DOM element such as document.createElement("p", "div", or "span")
+            • element.appendChild(DOMelement) 
+
+
+
+       
+
+
+
+
+
+
+
+
+
