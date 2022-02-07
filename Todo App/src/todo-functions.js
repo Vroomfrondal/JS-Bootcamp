@@ -62,10 +62,14 @@ function generateTodoDOM(todo) {
 
     // Setup todo Checkbox
     checkbox.setAttribute("type", "checkbox")
-    if (todo.completed) {
-        checkbox.checked = true
-    }
+    checkbox.checked = todo.completed
     todoElement.appendChild(checkbox)
+    checkbox.addEventListener("change", function (e) {
+        todo.completed = e.target.checked
+        console.log("Completed todos defaulted to checkmarked.")
+        saveTodos(todos)
+        renderTodos(todos, filters)
+    })
 
     // Setup text
     textElement.textContent = todo.text
