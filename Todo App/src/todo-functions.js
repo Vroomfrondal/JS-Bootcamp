@@ -65,6 +65,7 @@ function generateTodoDOM(todo) {
     checkbox.checked = todo.completed
     todoElement.appendChild(checkbox)
     checkbox.addEventListener("change", function (e) {
+        //make todo "completed" property true when checkbox is checked
         todo.completed = e.target.checked
         console.log("Completed todos defaulted to checkmarked.")
         saveTodos(todos)

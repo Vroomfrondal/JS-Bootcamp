@@ -8,13 +8,15 @@ renderNotes(notes, filters)
 
 // Push new note to notes object array -> store that object in local storage ->
 document.querySelector("#create-note-button").addEventListener("click", function (e) {
+    const id = uuidv4()
     notes.push({
-        id: uuidv4(),
+        id: id,
         title: "",
         body: "",
     })
     saveNotes(notes)
     renderNotes(notes, filters)
+    location.assign(`edit.html#${id}`) // Open note to start editing
 })
 
 // event listener to update filteredNotes and re Render function
