@@ -29,3 +29,10 @@ document.querySelector("#new-note-input-textbox").addEventListener("input", func
 document.querySelector("#filter-by-dropdown").addEventListener("change", function (e) {
     console.log(e.target.value)
 })
+
+window.addEventListener("storage", function (e) {
+    notes = JSON.parse(e.newValue)
+
+    renderNotes(notes, filters)
+    console.log("Data Updated.")
+})

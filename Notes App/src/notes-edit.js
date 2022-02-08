@@ -2,8 +2,8 @@ const titleElement = document.querySelector("#note-title")
 const bodyElement = document.querySelector("#note-body")
 const removeButtonElement = document.querySelector("#remove-note-button")
 const noteID = location.hash.substring(1) // get all characters from unique ID except # symbol
-const notes = getSavedNotes()
-const note = notes.find(function (note) {
+let notes = getSavedNotes()
+let note = notes.find(function (note) {
     return note.id === noteID
 })
 
@@ -32,4 +32,23 @@ removeButtonElement.addEventListener("click", function () {
     removeNote(noteID)
     saveNotes(notes)
     location.assign("index.html")
+})
+
+window.addEventListener("storage", function (e) {
+    //check if browser console property "key" matches notes
+    if (e.key === "notes") {
+        //update notes with parse value
+        notes = JSON.parse(e.newValue)
+
+        note = notes.find(function (note) {
+            return note.id === noteID
+        })
+
+        if (note === undefined) {
+            location.assign("index.html")
+        }
+
+        titleElement.value = note.title
+        bodyElement.value = note.body
+    }
 })
