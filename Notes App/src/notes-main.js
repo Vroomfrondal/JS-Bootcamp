@@ -7,12 +7,15 @@ const filters = {
 renderNotes(notes, filters)
 
 // Push new note to notes object array -> store that object in local storage ->
-document.querySelector("#create-note-button").addEventListener("click", function (e) {
-    const id = uuidv4()
+document.querySelector("#create-note-button").addEventListener("click", function () {
+    const id = uuidv4() // get unique ID from UUIDV4.js library
+    const timeStamp = moment().valueOf() // get current time from moment.js library
     notes.push({
         id: id,
         title: "",
         body: "",
+        createdAt: timeStamp,
+        updatedAt: timeStamp,
     })
     saveNotes(notes)
     renderNotes(notes, filters)
@@ -23,6 +26,7 @@ document.querySelector("#create-note-button").addEventListener("click", function
 document.querySelector("#new-note-input-textbox").addEventListener("input", function (e) {
     filters.searchText = e.target.value
     renderNotes(notes, filters)
+    console.log("Showing Filtered Results.")
 })
 
 // drop down list to sort by certain value
@@ -36,16 +40,3 @@ window.addEventListener("storage", function (e) {
     renderNotes(notes, filters)
     console.log("Data Updated.")
 })
-
-// const now = moment()
-
-// now.add("1", "year").subtract(20, "days")
-// console.log(now.format("MMMM Do, YYYY"))
-// console.log(now.fromNow())
-
-// const nowTimeStamp = now.valueOf()
-// console.log(moment(nowTimeStamp).toString())
-
-const birthday = moment()
-birthday.set("year", 1998).set("month", 5).set("date", 29)
-console.log(birthday.format("MMM D, YYYY"))

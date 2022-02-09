@@ -73,3 +73,8 @@ function renderNotes(notes, filters) {
         document.querySelector("#filtered-notes-by-searchText").appendChild(noteElement)
     })
 }
+
+// Generate last edited message for note-edit.js
+function generateLastEdited() {
+    return `Last edited ${moment(note.updatedAt).fromNow()}`
+}

@@ -1,7 +1,8 @@
 const titleElement = document.querySelector("#note-title")
 const bodyElement = document.querySelector("#note-body")
 const removeButtonElement = document.querySelector("#remove-note-button")
-const noteID = location.hash.substring(1) // get all characters from unique ID except # symbol
+const dateElement = document.querySelector("#note-timestamp")
+const noteID = location.hash.substring(1) // get all characters from unique ID except # symbol (URL)
 let notes = getSavedNotes()
 let note = notes.find(function (note) {
     return note.id === noteID
@@ -14,16 +15,21 @@ if (note === undefined) {
 //dynamically update index.html notes list with inputs on new note
 titleElement.value = note.title
 bodyElement.value = note.body
+dateElement.textContent = generateLastEdited(note.updatedAt)
 
 // update notes "title" in index.html based on edit.html inputs
 titleElement.addEventListener("input", function (e) {
     note.title = e.target.value
+    note.updatedAt = moment().valueOf()
+    dateElement.textContent = generateLastEdited(note.updatedAt)
     saveNotes(notes)
 })
 
 // update notes "body" in index.html based on edit.html inputs
 bodyElement.addEventListener("input", function (e) {
     note.body = e.target.value
+    note.updatedAt = moment().valueOf()
+    dateElement.textContent = generateLastEdited(note.updatedAt)
     saveNotes(notes)
 })
 
@@ -50,5 +56,6 @@ window.addEventListener("storage", function (e) {
 
         titleElement.value = note.title
         bodyElement.value = note.body
+        dateElement.textContent = generateLastEdited(note.updatedAt)
     }
 })
