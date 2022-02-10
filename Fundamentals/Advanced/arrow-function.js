@@ -22,11 +22,12 @@ const people = [
 ]
 
 // all the same function below
-// const under30 = people.filter(function (person) {
-//     return person.age < 30
-// })
+const under30 = people.filter(function (person) {
+    return person.age < 30
+})
 
 const under30 = people.filter((person) => person.age < 30)
+
 console.log(under30)
 
 const is22 = people.find((person) => person.age === 22)

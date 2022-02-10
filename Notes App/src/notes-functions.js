@@ -1,16 +1,4 @@
 // Read Existing notes from local storage
-// function getSavedNotes() {
-//     const notesJSON = localStorage.getItem("notes")
-
-//     // read & parse data when app starts up
-//     if (notesJSON !== null) {
-//         console.log("Notes Retrieved from Local Storage.")
-//         return JSON.parse(notesJSON)
-//     } else {
-//         return []
-//     }
-// }
-
 const getSavedNotes = () => {
     const notesJSON = localStorage.getItem("notes")
 
@@ -24,15 +12,14 @@ const getSavedNotes = () => {
 }
 
 // Save notes to local storage
-function saveNotes(notes) {
+const saveNotes = (notes) => {
     localStorage.setItem("notes", JSON.stringify(notes))
 }
 
 // removes note from list (used in generateDOM())
-function removeNote(id) {
-    const noteIndex = notes.findIndex(function (note) {
-        return note.id === id
-    })
+const removeNote = (id) => {
+    // return note only if ID is matches index
+    const noteIndex = notes.findIndex((note) => note.id === id)
 
     //"id >= 0" -> match found. "id < -1" -> match found
     if (noteIndex > -1) {
@@ -42,7 +29,7 @@ function removeNote(id) {
 }
 
 // Generate DOM structure for a new note
-function generateNoteDOM(note) {
+const generateNoteDOM = (note) => {
     const noteElement = document.createElement("div")
     const textElement = document.createElement("a")
     const button = document.createElement("button")
@@ -51,7 +38,7 @@ function generateNoteDOM(note) {
     // Setup the remove note button
     button.textContent = "Del"
     noteElement.appendChild(button)
-    button.addEventListener("click", function () {
+    button.addEventListener("click", () => {
         removeNote(note.id)
         saveNotes(notes)
         renderNotes(notes, filters)
@@ -71,10 +58,10 @@ function generateNoteDOM(note) {
 }
 
 // Sort Notes by one of three values in dropdown list
-function sortNotes(notes, sortBy) {
+const sortNotes = (notes, sortBy) => {
     if (sortBy === "byEdited") {
         // if a before b return -1. if b before a return 1
-        return notes.sort(function (a, b) {
+        return notes.sort((a, b) => {
             if (a.updatedAt > b.updatedAt) {
                 return -1
             } else if (a.updatedAt < b.updatedAt) {
@@ -84,7 +71,7 @@ function sortNotes(notes, sortBy) {
             }
         })
     } else if (sortBy === "byCreated") {
-        return notes.sort(function (a, b) {
+        return notes.sort((a, b) => {
             if (a.createdAt > b.createdAt) {
                 return -1
             } else if (a.createdAt < b.createdAt) {
@@ -94,7 +81,7 @@ function sortNotes(notes, sortBy) {
             }
         })
     } else if (sortBy === "alphabetical") {
-        return notes.sort(function (a, b) {
+        return notes.sort((a, b) => {
             if (a.title.toLowerCase() < b.title.toLowerCase()) {
                 return -1
             } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
@@ -109,23 +96,19 @@ function sortNotes(notes, sortBy) {
 }
 
 // render application notes
-function renderNotes(notes, filters) {
+const renderNotes = (notes, filters) => {
     notes = sortNotes(notes, filters.sortBy)
-    const filteredNotes = notes.filter(function (note) {
-        return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
-    })
+    const filteredNotes = notes.filter((note) => note.title.toLowerCase().includes(filters.searchText.toLowerCase()))
 
     // clear notes div before adding new filteredNotes to list
     document.querySelector("#filtered-notes-by-searchText").innerHTML = ""
 
     //itterate over filtered notes array and create new element for each note title
-    filteredNotes.forEach(function (note) {
+    filteredNotes.forEach((note) => {
         const noteElement = generateNoteDOM(note)
         document.querySelector("#filtered-notes-by-searchText").appendChild(noteElement)
     })
 }
 
 // Generate last edited message for note-edit.js
-function generateLastEdited() {
-    return `Last edited ${moment(note.updatedAt).fromNow()}`
-}
+const generateLastEdited = () => `Last edited ${moment(note.updatedAt).fromNow()}`
