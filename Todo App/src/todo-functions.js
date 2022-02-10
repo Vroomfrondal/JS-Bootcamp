@@ -1,5 +1,5 @@
 // Read Existing notes from user's browser cache
-function getSavedTodos() {
+const getSavedTodos = () => {
     const todoJSON = localStorage.getItem("todos")
 
     if (todoJSON !== null) {
@@ -11,15 +11,15 @@ function getSavedTodos() {
 }
 
 // Save Todo list to localStorage
-function saveTodos() {
+const saveTodos = () => {
     console.log("Saving notes to local storage.")
     localStorage.setItem("todos", JSON.stringify(todos))
 }
 
 // render application todos based on filters
-function renderTodos(todos, filters) {
+const renderTodos = (todos, filters) => {
     // return new array with todos that have text including our filtered word
-    const filteredTodos = todos.filter(function (todo) {
+    const filteredTodos = todos.filter((todo) => {
         const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
         const hideCompletedMatch = !filters.hideCompleted || !todo.completed
 
@@ -27,25 +27,21 @@ function renderTodos(todos, filters) {
     })
 
     // keep track of todos with incompleted property within todo Array
-    const incompleteTodos = filteredTodos.filter(function (todo) {
-        return !todo.completed
-    })
+    const incompleteTodos = filteredTodos.filter((todo) => !todo.completed)
 
     // clear div to avoid duplicate dynamic-html element creations
     document.querySelector("#filtered-todos-by-searchText").innerHTML = ""
     document.querySelector("#filtered-todos-by-searchText").appendChild(generateSummaryDOM(incompleteTodos))
 
     // itterate over filtered notes array and create new element for each note title
-    filteredTodos.forEach(function (todo) {
+    filteredTodos.forEach((todo) => {
         document.querySelector("#filtered-todos-by-searchText").appendChild(generateTodoDOM(todo))
     })
 }
 
 //Remove todo (button in generateTodoDOM())
-function removeTodo(id) {
-    const todoIndex = todos.findIndex(function (todo) {
-        return todo.id === id
-    })
+const removeTodo = (id) => {
+    const todoIndex = todos.findIndex((todo) => todo.id === id)
 
     if (todoIndex > -1) {
         console.log(`Todo with index of "${todoIndex}" has been removed.`)
@@ -54,7 +50,7 @@ function removeTodo(id) {
 }
 
 // Generate DOM elements for individual notes inside renderNotes()
-function generateTodoDOM(todo) {
+const generateTodoDOM = (todo) => {
     const todoElement = document.createElement("div")
     const checkbox = document.createElement("input")
     const textElement = document.createElement("span")
@@ -64,7 +60,7 @@ function generateTodoDOM(todo) {
     checkbox.setAttribute("type", "checkbox")
     checkbox.checked = todo.completed
     todoElement.appendChild(checkbox)
-    checkbox.addEventListener("change", function (e) {
+    checkbox.addEventListener("change", (e) => {
         //make todo "completed" property true when checkbox is checked
         todo.completed = e.target.checked
         console.log("Completed todos defaulted to checkmarked.")
@@ -79,7 +75,7 @@ function generateTodoDOM(todo) {
     // Setup Delete button
     deleteButton.textContent = "Del"
     textElement.appendChild(deleteButton)
-    deleteButton.addEventListener("click", function () {
+    deleteButton.addEventListener("click", () => {
         removeTodo(todo.id)
         saveTodos(todos)
         renderTodos(todos, filters)

@@ -8,13 +8,13 @@ const filters = {
 renderTodos(todos, filters)
 
 // filter tasks left based on search text
-document.querySelector("#search-text").addEventListener("input", function (e) {
+document.querySelector("#search-text").addEventListener("input", (e) => {
     filters.searchText = e.target.value
     renderTodos(todos, filters)
 })
 
 // Apend todo list with input from newTodo HTML form
-document.querySelector("#new-todo").addEventListener("submit", function (e) {
+document.querySelector("#new-todo").addEventListener("submit", (e) => {
     //prevent page reload on submit
     e.preventDefault()
 
@@ -30,7 +30,7 @@ document.querySelector("#new-todo").addEventListener("submit", function (e) {
 })
 
 // filter completed task when #hide-completed-button is checked
-document.querySelector("#hide-completed-button").addEventListener("change", function (e) {
+document.querySelector("#hide-completed-button").addEventListener("change", (e) => {
     filters.hideCompleted = e.target.checked
     renderTodos(todos, filters)
 })
