@@ -58,8 +58,47 @@ function generateNoteDOM(note) {
     return noteElement
 }
 
+// Sort Notes by one of three values in dropdown list
+function sortNotes(notes, sortBy) {
+    if (sortBy === "byEdited") {
+        // if a before b return -1. if b before a return 1
+        return notes.sort(function (a, b) {
+            if (a.updatedAt > b.updatedAt) {
+                return -1
+            } else if (a.updatedAt < b.updatedAt) {
+                return 1
+            } else {
+                return 0
+            }
+        })
+    } else if (sortBy === "byCreated") {
+        return notes.sort(function (a, b) {
+            if (a.createdAt > b.createdAt) {
+                return -1
+            } else if (a.createdAt < b.createdAt) {
+                return 1
+            } else {
+                return 0
+            }
+        })
+    } else if (sortBy === "alphabetical") {
+        return notes.sort(function (a, b) {
+            if (a.title.toLowerCase() < b.title.toLowerCase()) {
+                return -1
+            } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
+                return 1
+            } else {
+                return 0
+            }
+        })
+    } else {
+        return notes
+    }
+}
+
 // render application notes
 function renderNotes(notes, filters) {
+    notes = sortNotes(notes, filters.sortBy)
     const filteredNotes = notes.filter(function (note) {
         return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
     })

@@ -2,6 +2,7 @@ let notes = getSavedNotes() //notes-function.js
 
 const filters = {
     searchText: "",
+    sortBy: "byEdited",
 }
 
 renderNotes(notes, filters)
@@ -29,14 +30,18 @@ document.querySelector("#new-note-input-textbox").addEventListener("input", func
     console.log("Showing Filtered Results.")
 })
 
-// drop down list to sort by certain value
+// Sort notes by value selected in drop-down by user
 document.querySelector("#filter-by-dropdown").addEventListener("change", function (e) {
-    console.log(e.target.value)
+    console.log("Showing sorted notes.")
+    filters.sortBy = e.target.value
+    renderNotes(notes, filters)
 })
 
 window.addEventListener("storage", function (e) {
-    notes = JSON.parse(e.newValue)
+    if (e.key === "notes") {
+        notes = JSON.parse(e.newValue)
 
-    renderNotes(notes, filters)
-    console.log("Data Updated.")
+        renderNotes(notes, filters)
+        console.log("Data Updated.")
+    }
 })
