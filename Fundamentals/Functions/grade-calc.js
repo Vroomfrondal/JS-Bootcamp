@@ -2,25 +2,24 @@
 // Ex: 15/20 -> You got a "C" (75%) (return a string)
 
 function main() {
-    calcGrade(86, 100) // Enter: student's points, total possible points on test  
-    determineGradeLetter() 
+    calcGrade(25, 100) // Enter: student's points, total possible points on test
+    determineGradeLetter()
 }
-
 main()
 
 function calcGrade(studentScore, totalScorePossible) {
     //calculate score & convert to percentage
-    calculatedScore = (studentScore / totalScorePossible )
-    scoreConvertedToPercentage = (calculatedScore * 100) 
+    const calculatedScore = studentScore / totalScorePossible
+    scoreConvertedToPercentage = calculatedScore * 100
 
-    return scoreConvertedToPercentage
+    console.log(scoreConvertedToPercentage)
 }
 
 function determineGradeLetter() {
-    let percentage = scoreConvertedToPercentage
+    const percentage = scoreConvertedToPercentage
 
-    // Determine what Letter corresponds with scoreConvertedToPercentage 
-    // Grading scale: 
+    // Determine what Letter corresponds with scoreConvertedToPercentage
+    // Grading scale:
     if (percentage >= 90 && percentage <= 100) {
         console.log("You made an A " + "with a " + percentage.toFixed(2) + "%" + "!")
     } else if (percentage >= 80 && percentage <= 89) {
