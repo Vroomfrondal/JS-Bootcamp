@@ -2,8 +2,8 @@
 const getSavedNotes = () => {
     const notesJSON = localStorage.getItem("notes")
 
-    // if local storage has items, parse those items onto array. if not, give fresh new array
-    return notesJSON !== null ? JSON.parse(notesJSON) : []
+    // If there is data in local storage, parse it to our array. Else, new array (Falsy null)
+    return notesJSON ? JSON.parse(notesJSON) : []
 }
 
 // Save notes to local storage

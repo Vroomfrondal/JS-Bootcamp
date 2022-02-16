@@ -40,7 +40,6 @@ document.querySelector("#filter-by-dropdown").addEventListener("change", (e) => 
 window.addEventListener("storage", (e) => {
     if (e.key === "notes") {
         notes = JSON.parse(e.newValue)
-
         renderNotes(notes, filters)
         console.log("Data Updated.")
     }

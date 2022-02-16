@@ -6,7 +6,8 @@ const noteID = location.hash.substring(1) // get all characters from unique ID e
 let notes = getSavedNotes()
 let note = notes.find((note) => note.id === noteID)
 
-if (note === undefined) {
+//if no note present, send to homepage
+if (!note) {
     location.assign("index.html")
 }
 
@@ -46,7 +47,7 @@ window.addEventListener("storage", (e) => {
 
         note = notes.find((note) => note.id === noteID)
 
-        if (note === undefined) {
+        if (!note) {
             location.assign("index.html")
         }
 

@@ -2,14 +2,7 @@
 const getSavedTodos = () => {
     const todoJSON = localStorage.getItem("todos")
     // if local storage has items, parse those items onto array. if not, give fresh new array
-    return todoJSON !== null ? JSON.parse(todoJSON) : []
-
-    if (todoJSON !== null) {
-        console.log("Fetched notes from local storage")
-        return JSON.parse(todoJSON)
-    } else {
-        return []
-    }
+    return todoJSON ? JSON.parse(todoJSON) : []
 }
 
 // Save Todo list to localStorage
@@ -62,6 +55,7 @@ const generateTodoDOM = (todo) => {
     checkbox.setAttribute("type", "checkbox")
     checkbox.checked = todo.completed
     todoElement.appendChild(checkbox)
+
     checkbox.addEventListener("change", (e) => {
         //make todo "completed" property true when checkbox is checked
         todo.completed = e.target.checked
