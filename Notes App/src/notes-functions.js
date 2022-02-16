@@ -2,13 +2,8 @@
 const getSavedNotes = () => {
     const notesJSON = localStorage.getItem("notes")
 
-    // read & parse data when app starts up
-    if (notesJSON !== null) {
-        console.log("Notes Retrieved from Local Storage.")
-        return JSON.parse(notesJSON)
-    } else {
-        return []
-    }
+    // if local storage has items, parse those items onto array. if not, give fresh new array
+    return notesJSON !== null ? JSON.parse(notesJSON) : []
 }
 
 // Save notes to local storage

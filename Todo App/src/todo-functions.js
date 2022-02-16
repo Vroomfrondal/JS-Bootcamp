@@ -1,6 +1,8 @@
 // Read Existing notes from user's browser cache
 const getSavedTodos = () => {
     const todoJSON = localStorage.getItem("todos")
+    // if local storage has items, parse those items onto array. if not, give fresh new array
+    return todoJSON !== null ? JSON.parse(todoJSON) : []
 
     if (todoJSON !== null) {
         console.log("Fetched notes from local storage")
