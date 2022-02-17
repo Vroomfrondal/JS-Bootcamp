@@ -1,3 +1,5 @@
+"use strict"
+
 // Read Existing notes from user's browser cache
 const getSavedTodos = () => {
     const todoJSON = localStorage.getItem("todos")
