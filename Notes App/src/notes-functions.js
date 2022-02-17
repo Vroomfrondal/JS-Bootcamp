@@ -2,8 +2,13 @@
 const getSavedNotes = () => {
     const notesJSON = localStorage.getItem("notes")
 
-    // If there is data in local storage, parse it to our array. Else, new array (Falsy null)
-    return notesJSON ? JSON.parse(notesJSON) : []
+    try {
+        // If there is data in local storage, parse it to our array. Else (null value), blank array
+        return notesJSON ? JSON.parse(notesJSON) : []
+    } catch (e) {
+        console.log(`JSON Error-crash protection.`)
+        return []
+    }
 }
 
 // Save notes to local storage
