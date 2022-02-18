@@ -24,9 +24,11 @@ Person.prototype.setName = function (fullName) {
     this.lastName = names[1]
 }
 
-const me = new Person("Chris", "Deleon", 23, ["Lifting", "Coding"]) // constructor function that initializes a new person object
+//instance 1
+const me = new Person("Chris", "Deleon", 23, ["Lifting", "Coding"])
 me.setName("Tuff Hale")
 console.log(me.getBio())
 
+//instance 2
 const person2 = new Person("Clancy", "Wright", 28)
 console.log(person2.getBio())
