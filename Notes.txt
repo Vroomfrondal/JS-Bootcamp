@@ -310,10 +310,10 @@ Section 10 (advanced objects & functions (OOP))
         • Primatives does not have properties (non-object) 
         • Learned why arrays and objects have access to methods such as forEach and indexOf
             • In the browser, you can inspect objects "proto" properties to see this 
-    •
-    •
-    •
-    •
+    • Hangman Challenge II
+        • created makeGuess Object method to allow users to make a letter-guess towards the goal word by using a window.addEventListener
+        •
+        •
     •
 
 

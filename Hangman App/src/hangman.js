@@ -22,25 +22,34 @@ Hangman.prototype.getPuzzle = function () {
 }
 
 Hangman.prototype.makeGuess = function (guess) {
-    console.log(this.guessedLetters) //debug
-    //convert to lowercase and push to our array
     guess = guess.toLowerCase()
+    const isUnique = !this.guessedLetters.includes(guess)
+    const badGuess = !this.word.includes(guess)
 
-    // Make sure guess is unique and subtract 1 from remainingGuesses
-    if (this.guessedLetters.includes(guess)) {
-        console.log("Try a guess you haven't done")
-        this.remainingGuesses += -1
-        this.guessedLetters.pop()
-    } else {
-        console.log("This is a unique guess. Do step 3")
+    // Make sure guess is unique.
+    if (isUnique) {
+        //console.log("This is a unique guess.")
+        this.guessedLetters.push(guess)
     }
-    console.log(this.guessedLetters)
+
+    if (isUnique && badGuess) {
+        //console.log("Try a guess you haven't given")
+        this.remainingGuesses--
+    }
 }
 
 const game1 = new Hangman("Cat", 2)
-console.log(game1.makeGuess("T"))
 console.log(game1.getPuzzle())
 console.log(game1.remainingGuesses)
 
+// let user click keyboard to make a guess
+window.addEventListener("keypress", (e) => {
+    const guess = e.key
+    game1.makeGuess(guess)
+    console.log(game1.getPuzzle())
+    console.log(game1.remainingGuesses)
+})
+
 // const game2 = new Hangman("World", 5)
+// game2.makeGuess("w")
 // console.log(game2.getPuzzle())
