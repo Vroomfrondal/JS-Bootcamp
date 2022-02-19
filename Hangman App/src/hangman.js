@@ -2,7 +2,7 @@ function Hangman(word, remainingGuesses) {
     //setup instance properties - first as array of lowercase letters so we can loop through
     this.word = word.toLowerCase().split("")
     this.remainingGuesses = remainingGuesses
-    this.guessedLetters = ["c", "w"]
+    this.guessedLetters = []
 }
 
 Hangman.prototype.getPuzzle = function () {
@@ -21,8 +21,26 @@ Hangman.prototype.getPuzzle = function () {
     return puzzle
 }
 
-const game1 = new Hangman("Cat", 2)
-console.log(game1.getPuzzle())
+Hangman.prototype.makeGuess = function (guess) {
+    console.log(this.guessedLetters) //debug
+    //convert to lowercase and push to our array
+    guess = guess.toLowerCase()
 
-const game2 = new Hangman("World", 5)
-console.log(game2.getPuzzle())
+    // Make sure guess is unique and subtract 1 from remainingGuesses
+    if (this.guessedLetters.includes(guess)) {
+        console.log("Try a guess you haven't done")
+        this.remainingGuesses += -1
+        this.guessedLetters.pop()
+    } else {
+        console.log("This is a unique guess. Do step 3")
+    }
+    console.log(this.guessedLetters)
+}
+
+const game1 = new Hangman("Cat", 2)
+console.log(game1.makeGuess("T"))
+console.log(game1.getPuzzle())
+console.log(game1.remainingGuesses)
+
+// const game2 = new Hangman("World", 5)
+// console.log(game2.getPuzzle())
