@@ -1,4 +1,4 @@
-Currently on: Sec. 8 - #1
+Currently on: Sec. 10 - Hangman Challenge (1)
 [Need] Rewatch Video s7 56 - filtering user input
 [Need] Rewatch Video s7 57 - Filtering user input challenege
 
@@ -173,8 +173,8 @@ Learned:
         • <select>
             <option> list option </option>
          </select>
-        •
-    •
+        
+    
 6) Section 8
     • C.R.U.D - Create data, Read data, 
     • Saving data in local storage I (string-based data)
@@ -204,21 +204,117 @@ Learned:
             • element.appendChild(DOMelement) 
 
     • Setting up a third-party library
-        • 
-        •
-        •
+        • downloaded uuidv4 external library for using a unique idenfier and applying that identifier to the push statement on notes-main.js
+    
+
+    • targeting by UUID
+        • used findIndex to check if ID we're deleting matches ID. And coded functionality for the delete button on each note by an addEventListener
+
+    • Editing Notes I
+        • location.assign() - browser debugging
+        • location.hash.substring(1, 3) -> returns 1st to 3rd index part of a string
+        • <textarea> </textarea> html element for input textbox
+        • coded dynamic updating of note title and body as user inputs it. in index.html's main notes-list
+
+    • Syncing data across pages
+        • global event via window.addEventListener 
+        • window.addEventListener("storage", function(){})
+        • used debugger to check e event
+
+    • JS Dates
+        • const today = new Date()
+        • now.getTime() => returns Unix Epoch Time (###########)
+        • MDN dates for full list of methods like getHour, getMonth, getDate, getFullYear
+
+    • Moment (Javascript Library for dates)
+        • Docs https://momentjs.com/docs/
+            • console.log(date.toString()) => toString is a must
+        • check docs under "get-set" to see methods
+        • check docs under "manipulate" to see how to perform operations on dates
+            • const now = moment()
+            • now.add("2", "year").subtract(20, "days")
+            • .format() or .format("MMMM Do YYYY")
+
+    • Integrating dates
+        • used notes.sort(function(a, b) {}) to sort notes depending on html drop down list => check sortNotes() function on notes-functions.js
+        
+7) (S9) Expanding our JS knowledge 
+    • Arrow Functions I    
+        • const under30 = people.filter(function (person) {
+             return person.age < 30
+        })
+
+        • const under30 = people.filter((person) => person.age < 30)
+    • Arrow Functions II
+        • (arguments) keyword => returns all arguments of given argument (niche case you'll never use)
+    
+    • Conditional Turnaary Operator (check advanced folder)
+        • replaces some If-statements
+        • ? - 
+        • : -  comes after second argument 
+        • Ex: message = myAge >= 18 ? "You can vote!" : "You cannot vote."
+        • Can also be used w/ functions
+
+    • Truthy and Falsy Values
+        • Truthy - values that resolve to true in a boolean context
+        • Falsy - values that resolve to false in a boolean context
+        • Falsy Values - false, number 0, empty string "", null, undefined, NaN
+        • Truthy Values - anything else including empty arrays or objects
+
+    • Type Coerscion 
+        • Javascripts best guess when we try and perform an operation on different data types -> "2" + 2
+        • a string, a number, or boolean ONLY
+        • this is why we use the strict operator "===" because it takes type into account 5 == 5 vs 5 === 5 
+        • typeof 
+        Ex: 
+        • const type = typeof 123
+        • console.log(type)
+
+    • try-Catch 
+        • throw Error("Custom Error")- keyword that is followed by string for a custom error message
+        • try {
+            code here
+        } catch (e) {
+
+        }
+
+    • Strict Mode   
+        • runs JS in more secure enviorment and makes it easier to write less error-prone code
+        • "use strict" - top of file
+
+
+Section 10 (advanced objects & functions (OOP))
+
+    • Object Oriented Programming - Programming that's oriented around objects 
+        • creating "instances" that are objects which makes it easier to grow program or add instances based on the same object
+         
+    • Constructor functions 
+        • new -> keyword that goes in front of function 
+        • "new" generates new empty object for instance, then gives us access to that empty object via this value
+        • constructor operator convention uses UPPERCASE first letter. like 
+            const Person = function (firstName) {
+                this.firstName = firstName
+            }
+
+    • Setting the prototype object
+        • .prototype - property keyword for methods within constructor functions
+        • .split - used on strings to turn into an array and split up items
+            • "12355612".split("")
+
+    • Hangman Challenge (struggled)
+    • Prototypal Inheritance
+        
+    • Primatives and Objects
+        • .hasOwnProperty("propertyOfObject") 
+        • Primitive Values - String, number, boolean, null, undefined
+        • Primatives does not have properties (non-object) 
+        • Learned why arrays and objects have access to methods such as forEach and indexOf
+            • In the browser, you can inspect objects "proto" properties to see this 
+    •
+    •
+    •
+    •
     •
 
 
-
-
-       
-
-
-
-
-
-
-
-
-
+    

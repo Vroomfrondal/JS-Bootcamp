@@ -1,10 +1,13 @@
-# Udemy
+# JS Bootcamp
 
-A Udemy file Dump
+Each project has its own folder. Whereas fundamentals is a dump of various files used to test and implement different ECMA
 
-Exercise naming-convention and commit-description is not a representation of how I would do it on a collaborative project.
-It was designed for speed and personal-understanding.
+Commit description and variable naming convention is revolved around personal understanding. It is not how I would execute it in a collaborative project
 
-**To clone/run on your own machine:**
+## Various Projects
 
-- Make sure you npm init in order to use NodeJS on the scripts in this file project
+-   Various NodeJs scripts (resturaunt seating availability mini app, password generator and validator)
+
+-   A feature rich todo app with a live-rendering approach and features such as an instagram-styled timestamp, dynamically updating titles and bodies, multipage
+
+-   A notes app with different approaches to the same features to solidify the knowledge
