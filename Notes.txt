@@ -1,4 +1,4 @@
-Currently on: Sec. 10 - Hangman Challenge (1)
+Currently on: Sec. 10 - Hangman Challenge IV
 [Need] Rewatch Video s7 56 - filtering user input
 [Need] Rewatch Video s7 57 - Filtering user input challenege
 
@@ -310,6 +310,13 @@ Section 10 (advanced objects & functions (OOP))
         • Primatives does not have properties (non-object) 
         • Learned why arrays and objects have access to methods such as forEach and indexOf
             • In the browser, you can inspect objects "proto" properties to see this 
+        • This is the prototype chain (inspect in the browser dev tools)
+        • Object: myObject --> product --> Object.prototype --> null (chain ends)
+        • Array: myArray --> Array.prototype --> Object.prototype --> null (chain ends)
+        • Function: myFunc --> Function.prototype --> Object.prototype --> null
+        • String: myString --> String.prototype --> Object.prototype --> null
+        • Number: myNumber --> Number.prototype --> Object.prototype --> null
+        • Boolean: myBool --> Boolean.prototype --> Object.prototype --> null  
     • Hangman Challenge II
         • created makeGuess Object method to allow users to make a letter-guess towards the goal word by using a window.addEventListener
         •

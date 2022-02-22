@@ -3,6 +3,7 @@ function Hangman(word, remainingGuesses) {
     this.word = word.toLowerCase().split("")
     this.remainingGuesses = remainingGuesses
     this.guessedLetters = []
+    this.status = "playing"
 }
 
 Hangman.prototype.getPuzzle = function () {
@@ -38,18 +39,17 @@ Hangman.prototype.makeGuess = function (guess) {
     }
 }
 
-const game1 = new Hangman("Cat", 2)
-console.log(game1.getPuzzle())
-console.log(game1.remainingGuesses)
+// Status Logic
+Hangman.prototype.getStatus = function () {
+    const solved = !this.getPuzzle().includes("*")
 
-// let user click keyboard to make a guess
-window.addEventListener("keypress", (e) => {
-    const guess = e.key
-    game1.makeGuess(guess)
-    console.log(game1.getPuzzle())
-    console.log(game1.remainingGuesses)
-})
+    if (this.remainingGuesses <= 0) {
+        this.status = "Game Over"
+    } else if (solved) {
+        this.status = "Finished!"
+    } else {
+        this.status = "Playing"
+    }
 
-// const game2 = new Hangman("World", 5)
-// game2.makeGuess("w")
-// console.log(game2.getPuzzle())
+    return this.status
+}

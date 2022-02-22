@@ -1,4 +1,17 @@
 * {
     background-color: black;
-    color: aliceblue;
+    color: rgb(219, 228, 236);
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+.title {
+    text-align: center;
+}
+
+.hangman-wrapper {
+    text-align: center;
 }
