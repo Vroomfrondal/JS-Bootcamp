@@ -11,7 +11,12 @@ statusEl.textContent = game1.getStatus()
 // Use the keyboard to make a guess
 window.addEventListener("keypress", (e) => {
     const guess = e.key
-    game1.makeGuess(guess)
+
+    // take new guesses only if status is "playing"
+    if (game1.getStatus() === "Playing") {
+        game1.makeGuess(guess)
+    }
+
     puzzleEl.textContent = game1.getPuzzle()
     remainingGuessesEl.textContent = game1.remainingGuesses
     statusEl.textContent = game1.getStatus()

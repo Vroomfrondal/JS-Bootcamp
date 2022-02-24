@@ -3,7 +3,7 @@ function Hangman(word, remainingGuesses) {
     this.word = word.toLowerCase().split("")
     this.remainingGuesses = remainingGuesses
     this.guessedLetters = []
-    this.status = "playing"
+    this.status = "Playing"
 }
 
 Hangman.prototype.getPuzzle = function () {
@@ -34,19 +34,21 @@ Hangman.prototype.makeGuess = function (guess) {
     }
 
     if (isUnique && badGuess) {
-        //console.log("Try a guess you haven't given")
+        //console.log("But an incompatible guess")
         this.remainingGuesses--
     }
+
+    //this.getStatus()
 }
 
-// Status Logic
+// Status-property of the Hangman game Logic
 Hangman.prototype.getStatus = function () {
     const solved = !this.getPuzzle().includes("*")
 
     if (this.remainingGuesses <= 0) {
-        this.status = "Game Over"
+        this.status = "Game Over :["
     } else if (solved) {
-        this.status = "Finished!"
+        this.status = "You Won!"
     } else {
         this.status = "Playing"
     }
