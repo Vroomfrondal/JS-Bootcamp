@@ -316,12 +316,34 @@ Section 10 (advanced objects & functions (OOP))
         • Function: myFunc --> Function.prototype --> Object.prototype --> null
         • String: myString --> String.prototype --> Object.prototype --> null
         • Number: myNumber --> Number.prototype --> Object.prototype --> null
-        • Boolean: myBool --> Boolean.prototype --> Object.prototype --> null  
+        • Boolean: myBool --> Boolean.prototype --> Object.prototype --> null
+         
     • Hangman Challenge II
         • created makeGuess Object method to allow users to make a letter-guess towards the goal word by using a window.addEventListener
-        •
-        •
+        
+
+    • The Class Syntax
+        • class myClass {} // what goes inside curly braces is the class definition not 
+        • converted person.js to class
+            • class Person {
+                constructor(function arguments) {
+
+                }
+                method() {
+                }
+                method() {
+                }
+            }
+    • Creating subclasses
     •
+    •
+    •
+    •
+    •
+    •
+
+    •
+
 
 
     
