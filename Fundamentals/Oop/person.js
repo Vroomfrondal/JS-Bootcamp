@@ -17,10 +17,15 @@ class Person {
 
         return bio
     }
-    setName(fullName) {
+    // allow for manipulation of the object-instance's name property
+    set fullName(fullName) {
         const names = fullName.split(" ")
         this.firstName = names[0]
         this.lastName = names[1]
+    }
+    // for getBio() within subclasses
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`
     }
 }
 
@@ -33,7 +38,7 @@ class Employee extends Person {
     }
     // change getBio() object-method for workers since they don't want to reveal social-information
     getBio() {
-        return `${this.firstName} ${this.lastName} is a ${this.career}. `
+        return `${this.fullName} is a ${this.career}. `
     }
     getRetireDate() {
         return 65 - this.age
@@ -61,10 +66,16 @@ class Student extends Person {
 }
 
 //Challenge Instance
-const student1 = new Student("Chris", "Deleon", 23, 70, [])
-console.log(student1.getBio())
-student1.updateGrade(-10)
-console.log(student1.getBio())
+// const employee1 = new Employee("Chris", "Deleon", 23, 70, [])
+// student1.fullName = "Kate DeLeon"
+// console.log(student1.getBio())
+// student1.updateGrade(-10)
+// console.log(student1.getBio())
+
+// Employee Instance (custom getters/setters)
+const employee1 = new Employee("Chris", "Deleon", 23, "Intern", [])
+employee1.fullName = "Kate K."
+console.log(employee1.getBio())
 
 //instance 1
 // const person1 = new Employee("Chris", "Deleon", 23, "Intern", ["Power Lifting", "Coding"])

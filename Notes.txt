@@ -301,7 +301,6 @@ Section 10 (advanced objects & functions (OOP))
         • .split - used on strings to turn into an array and split up items
             • "12355612".split("")
 
-    • Hangman Challenge (struggled)
     • Prototypal Inheritance
         
     • Primatives and Objects
@@ -334,15 +333,26 @@ Section 10 (advanced objects & functions (OOP))
                 method() {
                 }
             }
+
     • Creating Subclasses (check person.js)
         • creates a class that inherits behavior from the main object (avoids duplicate code) 
         • Ex: class Employee extends Person {}
         • Super - keyword that calls parent object's constructor function
         • extends - keyword used in Super()
+
+    • Getters and Setters 
+        • custom logic used to 'set' and 'get' values from object-properties
+        • allows devs to access properties of objects in a secure way
+        • get - overrides what happens when someone tries to fetch a value
+        • set - where backend logic goes / where data actually lives
+        • getter usually has no arguments. setter usually does
+    •
+    •
+    •
+    •
     •
     •
 
-    •
 
 
 

@@ -7,7 +7,7 @@ class Hangman {
         this.guessedLetters = []
         this.status = "Playing"
     }
-    getPuzzle() {
+    get puzzle() {
         let puzzle = ""
 
         // loop through game-word and sensor each letter that's not already been guessed
@@ -37,8 +37,8 @@ class Hangman {
             this.remainingGuesses--
         }
     }
-    getStatus() {
-        const solved = !this.getPuzzle().includes("*")
+    get statusMessage() {
+        const solved = !this.puzzle.includes("*")
 
         if (this.remainingGuesses <= 0) {
             this.status = `Game Over :[ Correct Word: "${this.word.join("")}"`
