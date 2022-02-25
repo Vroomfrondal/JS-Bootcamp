@@ -1,4 +1,4 @@
-Currently on: Sec. 10 - Hangman Challenge IV
+Currently on: Sec. 10 - Getters and Setters
 [Need] Rewatch Video s7 56 - filtering user input
 [Need] Rewatch Video s7 57 - Filtering user input challenege
 
@@ -322,7 +322,7 @@ Section 10 (advanced objects & functions (OOP))
         • created makeGuess Object method to allow users to make a letter-guess towards the goal word by using a window.addEventListener
         
 
-    • The Class Syntax
+    • The Class Syntax (check person.js)
         • class myClass {} // what goes inside curly braces is the class definition not 
         • converted person.js to class
             • class Person {
@@ -334,11 +334,11 @@ Section 10 (advanced objects & functions (OOP))
                 method() {
                 }
             }
-    • Creating subclasses
-    •
-    •
-    •
-    •
+    • Creating Subclasses (check person.js)
+        • creates a class that inherits behavior from the main object (avoids duplicate code) 
+        • Ex: class Employee extends Person {}
+        • Super - keyword that calls parent object's constructor function
+        • extends - keyword used in Super()
     •
     •
 

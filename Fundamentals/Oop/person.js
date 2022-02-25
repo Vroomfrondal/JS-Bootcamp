@@ -24,11 +24,54 @@ class Person {
     }
 }
 
+// Subclass containing employee methods
+class Employee extends Person {
+    // constructor function that calls super() parent object-constructor
+    constructor(firstName, lastName, age, career, likes) {
+        super(firstName, lastName, age, career, likes)
+        this.career = career
+    }
+    // change getBio() object-method for workers since they don't want to reveal social-information
+    getBio() {
+        return `${this.firstName} ${this.lastName} is a ${this.career}. `
+    }
+    getRetireDate() {
+        return 65 - this.age
+    }
+}
+
+// Subclass containing student methods
+class Student extends Person {
+    constructor(firstName, lastName, age, grade, likes) {
+        super(firstName, lastName, age, grade, likes)
+        this.grade = grade
+    }
+    // change getBio() object-method for students to print grade message
+    getBio() {
+        if (this.grade < 70) {
+            return `${this.firstName} ${this.lastName} is failing.`
+        } else {
+            return `${this.firstName} ${this.lastName} is passing.`
+        }
+    }
+    updateGrade(pointsToCalculate) {
+        console.log(this.grade + pointsToCalculate)
+        return (this.grade += pointsToCalculate)
+    }
+}
+
+//Challenge Instance
+const student1 = new Student("Chris", "Deleon", 23, 70, [])
+console.log(student1.getBio())
+student1.updateGrade(-10)
+console.log(student1.getBio())
+
 //instance 1
-const me = new Person("Chris", "Deleon", 23, ["power lifting", "coding"])
-//me.setName("Tuff Hale")
-console.log(me.getBio())
+// const person1 = new Employee("Chris", "Deleon", 23, "Intern", ["Power Lifting", "Coding"])
+// person1.setName("Tuff Hale")
+// console.log(person1.getBio())
+// console.log(person1.getRetireDate())
 
 //instance 2
-const person2 = new Person("Clancy", "Wright", 28)
-console.log(person2.getBio())
+// const person2 = new Person("Clancy", "Wright", 28)
+// console.log(person2.getBio())
