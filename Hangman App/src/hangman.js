@@ -13,7 +13,7 @@ class Hangman {
         // loop through game-word and sensor each letter that's not already been guessed
         this.word.forEach((letter) => {
             // check if letters in game-word have been guessed already and sensor those that haven't
-            if (this.guessedLetters.includes(letter)) {
+            if (this.guessedLetters.includes(letter) || letter === " ") {
                 puzzle += letter
             } else {
                 puzzle += "*"

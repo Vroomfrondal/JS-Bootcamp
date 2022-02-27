@@ -346,6 +346,8 @@ Section 10 (advanced objects & functions (OOP))
         • get - overrides what happens when someone tries to fetch a value
         • set - where backend logic goes / where data actually lives
         • getter usually has no arguments. setter usually does
+
+Section 11 (Asynchronous Javascript)
     •
     •
     •

@@ -1,7 +1,7 @@
 const puzzleEl = document.querySelector("#word")
 const remainingGuessesEl = document.querySelector("#remaining-guesses")
 const statusEl = document.querySelector("#status")
-const game1 = new Hangman("Cat", 2)
+const game1 = new Hangman("Hello World", 9) // hardcode word and number of guesses
 
 // Display Hangman Word & Remaining Guesses to screen
 puzzleEl.textContent = game1.puzzle
