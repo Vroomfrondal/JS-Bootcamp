@@ -1,5 +1,5 @@
 * {
-    background-color: black;
+    background-color: rgb(2, 2, 7);
     color: rgb(219, 228, 236);
 }
 
@@ -14,4 +14,5 @@ h2 {
 
 .hangman-wrapper {
     text-align: center;
+    font-size: 1.5em;
 }

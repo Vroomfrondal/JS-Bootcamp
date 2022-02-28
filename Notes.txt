@@ -348,13 +348,22 @@ Section 10 (advanced objects & functions (OOP))
         • getter usually has no arguments. setter usually does
 
 Section 11 (Asynchronous Javascript)
+    • HTTP requests from JS
+        • new XMLHttpRequest() 
+            • fetchData.open("GET", "https://puzzle.mead.io/puzzle")
+              fetchData.send()
+            • addEventListener("readystatechange", () => {
+                **code here**
+            })  
+        • made XMLHttpRequest, checked it state, and then logged its property
+        • handle errors in a frustration-free way
+    • when using an HTTP page, use HTTP JSON url. If using HTTPS, use JSON HTTPS url
     •
     •
     •
     •
     •
     •
-
 
 
 
