@@ -31,20 +31,11 @@ getPuzzle((error, puzzle) => {
     }
 })
 
-// Making HTTP Request
-// const countryCode = "US"
-// const fetchData = new XMLHttpRequest()
-
-// fetchData.addEventListener("readystatechange", (e) => {
-//     // look through array for countryCode and return that object
-//     if (e.target.readyState === 4 && e.target.status === 200) {
-//         const data = JSON.parse(e.target.responseText)
-//         const country = data.find((country) => country.cca2 === countryCode)
-//         console.log(country.name.official)
-//     } else if (e.target.readyState === 4) {
-//         console.log("Not a valid Country Code")
-//     }
-// })
-
-// fetchData.open("GET", "https://restcountries.com/v3.1/all")
-// fetchData.send()
+getCountryData("US", (error, country) => {
+    if (error) {
+        console.log(`Error: ${error}`)
+    } else {
+        console.log(`Data:`)
+        console.log(country)
+    }
+})
