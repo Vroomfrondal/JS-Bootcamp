@@ -22,20 +22,21 @@ window.addEventListener("keypress", (e) => {
     statusEl.textContent = game1.statusMessage
 })
 
-//callback function for request.js HTTP requests
-getPuzzle((error, puzzle) => {
-    if (error) {
-        console.log(`Error: ${error}`)
-    } else {
+getPuzzle("2").then(
+    (puzzle) => {
         console.log(puzzle)
-    }
-})
-
-getCountryData("US", (error, country) => {
-    if (error) {
+    },
+    (error) => {
         console.log(`Error: ${error}`)
-    } else {
-        console.log(`Data:`)
-        console.log(country)
     }
-})
+)
+
+getCountryData("US").then(
+    (country) => {
+        console.log(`Data for: ${country.name.common}`)
+        console.log(country)
+    },
+    (error) => {
+        console.log(error)
+    }
+)

@@ -369,19 +369,26 @@ Section 11 (Asynchronous Javascript)
             • blocks user from doing anything else until function runs
     
     • Callback Abstraction challenge
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
+
+    • Closures
+        • a closure gives you access to an outer function's scope from an inner function
+        • useful when generating functions with a base value
+
+    • Promises
+        • Promise API
+        • setTimeout sets a delay and takes two arguments, function and time in MS
+        • setTimeout(() => {
+
+          }, 2000)
+        • const myPromise = new Promise((resolve, reject) => {
+            reject("This is my promise error")
+          }
+            • takes one argument. a function
+        • in short, it beats callbacks because we don't specify the order of events to determine if the function went bad or not... we just use reject or resolve
+        • check promises.js
+        • .then is required after utilizing Promise
+    
+    • Promise Chaining
     •
     •
     •
