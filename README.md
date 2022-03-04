@@ -1,6 +1,6 @@
 # JS Bootcamp
 
-Each project has its own folder. Whereas fundamentals is a dump of various files used to test and implement different ECMA features.
+Each project has its own folder. Whereas fundamentals is a dump of various files used to test and implement different ECMAscript ES# features.
 
 ## Various Projects
 

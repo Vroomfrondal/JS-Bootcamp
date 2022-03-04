@@ -375,7 +375,7 @@ Section 11 (Asynchronous Javascript)
         • useful when generating functions with a base value
 
     • Promises
-        • Promise API
+        • Promise API - A Promise is an object representing the eventual completion or failure of an asynchronous operation
         • setTimeout sets a delay and takes two arguments, function and time in MS
         • setTimeout(() => {
 
@@ -384,16 +384,30 @@ Section 11 (Asynchronous Javascript)
             reject("This is my promise error")
           }
             • takes one argument. a function
-        • in short, it beats callbacks because we don't specify the order of events to determine if the function went bad or not... we just use reject or resolve
         • check promises.js
         • .then is required after utilizing Promise
     
     • Promise Chaining
+        • check promises.js 
+        • .then .then .then :)
+        • .catch - method for catching errors
+        • alternate way of avoiding callback Spaghetti code
+        • uses return and then, .then to add to chain
+
+    • The Fetch API
+        • replacement for XMLHttpRequest
+        • fetch (url)
     •
     •
     •
     •
     •
+    •
+    •
+    •
+    •
+    
+    
 
 
 

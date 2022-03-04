@@ -1,43 +1,68 @@
 // Callback Technique
-const getDataCallback = (callback) => {
+const getDataCallback = (num, callback) => {
     setTimeout(() => {
-        callback("Callback Error", undefined)
+        if (typeof num === "number") {
+            callback(undefined, num * 2)
+        } else {
+            callback("Number must be provided")
+        }
     }, 2000)
 }
 
-getDataCallback((error, data) => {
+// callback hell - don't write code like this. Use Promises
+getDataCallback(2, (error, data) => {
     if (error) {
         console.log(error)
     } else {
-        console.log(data)
+        // update getDataCallback
+        getDataCallback(data, (error, data) => {
+            if (error) {
+                console.log(error)
+            } else {
+                console.log(data)
+            }
+        })
     }
 })
 
 // Promise Technique - shorthand syntax for a function that returns a resolved promise
-const getDataPromise = (data) =>
+const getDataPromise = (num) =>
     new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(`this is my success data: ${data}`)
-            //resolve("Data goes here. Promise Data")
-            //reject("This is my promise error")
+            typeof num === "number" ? resolve(num * 2) : reject("Number must be provided.")
         }, 2000)
     })
 
-const myPromise = getDataPromise(12345)
-myPromise.then(
+//taking 2 to get 4. then passing into getDataPromise() to get 8.
+getDataPromise(2).then(
     (data) => {
-        console.log(data)
+        getDataPromise(data).then(
+            (data) => {
+                console.log(`Promise data: ${data}`)
+            },
+            (error) => {
+                console.log(error)
+            }
+        )
     },
     (error) => {
         console.log(error)
     }
 )
 
-myPromise.then(
-    (data) => {
+// Promise-chaining
+getDataPromise(10)
+    .then((data) => {
+        // Promise-Chaining
+        return getDataPromise(data)
+    })
+    .then((data) => {
+        return `this is some test data`
+    })
+    .then((data) => {
         console.log(data)
-    },
-    (error) => {
+    })
+    //error handler function
+    .catch((error) => {
         console.log(error)
-    }
-)
+    })

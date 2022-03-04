@@ -22,21 +22,38 @@ window.addEventListener("keypress", (e) => {
     statusEl.textContent = game1.statusMessage
 })
 
-getPuzzle("2").then(
-    (puzzle) => {
+getPuzzle("2")
+    // able to add ".then" because getPuzzle() returns the fetch from requests.js
+    .then((puzzle) => {
         console.log(puzzle)
-    },
-    (error) => {
+    })
+    .catch((error) => {
         console.log(`Error: ${error}`)
-    }
-)
+    })
 
-getCountryData("US").then(
-    (country) => {
-        console.log(`Data for: ${country.name.common}`)
-        console.log(country)
-    },
-    (error) => {
-        console.log(error)
-    }
-)
+// getCountryData("US").then(
+//     (country) => {
+//         console.log(`Data for: ${country.name.common}`)
+//         console.log(country)
+//     },
+//     (error) => {
+//         console.log(error)
+//     }
+// )
+
+// fetch(`https://puzzle.mead.io/puzzle`, {})
+//     .then((response) => {
+//         if (response.status === 200) {
+//             // Promise-chaining intialization
+//             return response.json()
+//         } else {
+//             // makes .catch run
+//             throw new Error("Unable to fetch Puzzle")
+//         }
+//     })
+//     .then((data) => {
+//         console.log(data.puzzle)
+//     })
+//     .catch((error) => {
+//         console.log(error)
+//     })
