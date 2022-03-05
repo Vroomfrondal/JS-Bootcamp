@@ -10,27 +10,24 @@ const getPuzzle = (wordCount) => {
             }
         })
         .then((data) => {
+            //console.log(data)
             return data.puzzle
         })
 }
 
-// Get country data via HTTP Promise API request
-const getCountryData = (countryCode) =>
-    new Promise((resolve, reject) => {
-        const fetchData = new XMLHttpRequest()
-
-        fetchData.addEventListener("readystatechange", (e) => {
-            // make sure API reponse is valid
-            if (e.target.readyState === 4 && e.target.status === 200) {
-                const data = JSON.parse(e.target.responseText)
-                const country = data.find((country) => country.cca2 === countryCode)
-
-                resolve(country)
-            } else if (e.target.readyState === 4) {
-                reject("Error")
+// Get Country Data
+const getCountry = (countryCode) => {
+    return fetch("https://restcountries.com/v3.1/all")
+        .then((response) => {
+            if (response.status === 200) {
+                return response.json()
+            } else {
+                throw new Error("Unable to fetch this country.")
             }
         })
-
-        fetchData.open("GET", `https://restcountries.com/v3.1/all`)
-        fetchData.send()
-    })
+        .then((data) => {
+            // search array of all countries for our specific countryCode
+            const country = data.find((country) => country.cca2 === countryCode)
+            return country
+        })
+}

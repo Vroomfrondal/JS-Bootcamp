@@ -41,7 +41,7 @@ class Hangman {
         const solved = !this.puzzle.includes("*")
 
         if (this.remainingGuesses <= 0) {
-            this.status = `Game Over :[ Correct Word: "${this.word.join("")}"`
+            this.status = `Game Over! Correct Answer: ${this.word.join("")}`
         } else if (solved) {
             this.status = "You Won!"
         } else {

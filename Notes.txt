@@ -397,10 +397,12 @@ Section 11 (Asynchronous Javascript)
     • The Fetch API
         • replacement for XMLHttpRequest
         • fetch (url)
-    •
-    •
-    •
-    •
+    
+    • Fetch Challenge 
+        • .then is a success call
+        • .catch is a failure call
+    
+    • A Promise Challenge
     •
     •
     •

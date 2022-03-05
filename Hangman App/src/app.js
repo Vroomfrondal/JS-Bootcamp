@@ -31,15 +31,14 @@ getPuzzle("2")
         console.log(`Error: ${error}`)
     })
 
-// getCountryData("US").then(
-//     (country) => {
-//         console.log(`Data for: ${country.name.common}`)
-//         console.log(country)
-//     },
-//     (error) => {
-//         console.log(error)
-//     }
-// )
+getCountry("US")
+    .then((country) => {
+        console.log(`Data for: ${country.name.official}`)
+        console.log(country)
+    })
+    .catch((error) => {
+        console.log(`Error: ${error}`)
+    })
 
 // fetch(`https://puzzle.mead.io/puzzle`, {})
 //     .then((response) => {
