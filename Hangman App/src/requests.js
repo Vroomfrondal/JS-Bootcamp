@@ -1,19 +1,30 @@
-// Making HTTP Request via XMLHTTP
-const getPuzzle = (wordCount) => {
-    return fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`)
-        .then((response) => {
-            if (response.status === 200) {
-                // returns promise that resolves with our JSON data
-                return response.json()
-            } else {
-                throw new Error("Unable to fetch puzzle.")
-            }
-        })
-        .then((data) => {
-            //console.log(data)
-            return data.puzzle
-        })
+// Making HTTP Requests via fetch
+const getPuzzle = async (wordCount) => {
+    const response = await fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`)
+
+    if (response.status === 200) {
+        const data = await response.json()
+        return data.puzzle
+    } else {
+        throw new Error("Unable to get Puzzle")
+    }
 }
+
+// const getPuzzleOld = (wordCount) => {
+//     return fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`)
+//         .then((response) => {
+//             if (response.status === 200) {
+//                 // returns promise that resolves with our JSON data
+//                 return response.json()
+//             } else {
+//                 throw new Error("Unable to fetch puzzle.")
+//             }
+//         })
+//         .then((data) => {
+//             //console.log(data)
+//             return data.puzzle
+//         })
+// }
 
 // Get Country Data
 const getCountry = (countryCode) => {

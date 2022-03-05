@@ -406,9 +406,25 @@ Section 11 (Asynchronous Javascript)
     • define a function -> request via fetch -> do something with response -> .then
 
     • Async/ Await
-        •
+        • async function - always return a promise. Promise gets resolved with whatever value we return
+        • await operator 
+        • 
     •
     •
+    •
+    •
+    •
+    •
+    •
+    •
+    •
+    •
+    •
+    •
+    •
+    •
+    •
+
     
     
 
