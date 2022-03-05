@@ -1,5 +1,4 @@
 class Hangman {
-    //constructor function
     constructor(word, remainingGuesses) {
         //setup instance properties - first as array of lowercase letters so we can loop through
         this.word = word.toLowerCase().split("")

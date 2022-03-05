@@ -407,9 +407,10 @@ Section 11 (Asynchronous Javascript)
 
     • Async/ Await
         • async function - always return a promise. Promise gets resolved with whatever value we return
-        • await operator 
-        • 
-    •
+        • await operator - replaces .then code
+        • replaces Promise-chaining with .then / callback hell
+    
+    • 
     •
     •
     •
