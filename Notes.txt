@@ -403,9 +403,10 @@ Section 11 (Asynchronous Javascript)
         • .catch is a failure call
     
     • A Promise Challenge
-    •
-    •
-    •
+    • define a function -> request via fetch -> do something with response -> .then
+
+    • Async/ Await
+        •
     •
     •
     

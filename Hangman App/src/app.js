@@ -22,8 +22,8 @@ window.addEventListener("keypress", (e) => {
     statusEl.textContent = game1.statusMessage
 })
 
+// Generate a random word via API request in requests.js
 getPuzzle("2")
-    // able to add ".then" because getPuzzle() returns the fetch from requests.js
     .then((puzzle) => {
         console.log(puzzle)
     })
@@ -31,28 +31,14 @@ getPuzzle("2")
         console.log(`Error: ${error}`)
     })
 
-getCountry("US")
+//determine location of user
+getLocation()
+    .then((locationInfo) => {
+        return getCountry(locationInfo.country)
+    })
     .then((country) => {
-        console.log(`Data for: ${country.name.official}`)
-        console.log(country)
+        console.log(country.name.common)
     })
     .catch((error) => {
-        console.log(`Error: ${error}`)
+        console.log(`Error caught: ${error}`)
     })
-
-// fetch(`https://puzzle.mead.io/puzzle`, {})
-//     .then((response) => {
-//         if (response.status === 200) {
-//             // Promise-chaining intialization
-//             return response.json()
-//         } else {
-//             // makes .catch run
-//             throw new Error("Unable to fetch Puzzle")
-//         }
-//     })
-//     .then((data) => {
-//         console.log(data.puzzle)
-//     })
-//     .catch((error) => {
-//         console.log(error)
-//     })

@@ -31,3 +31,19 @@ const getCountry = (countryCode) => {
             return country
         })
 }
+
+// Check which country user is in
+const getLocation = () => {
+    return fetch("http://ipinfo.io/json?token=f876dfebbeed96")
+        .then((response) => {
+            // ensure API ping is OK and parse response as json data if so
+            if (response.status === 200) {
+                return response.json()
+            } else {
+                throw new Error("Try enabling location services to check country")
+            }
+        })
+        .then((locationInfo) => {
+            return locationInfo
+        })
+}
