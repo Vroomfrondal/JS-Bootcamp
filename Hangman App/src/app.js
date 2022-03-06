@@ -15,9 +15,20 @@ window.addEventListener("keypress", (e) => {
 })
 
 const render = () => {
-    puzzleEl.textContent = game1.puzzle
-    remainingGuessesEl.textContent = game1.remainingGuesses
+    puzzleEl.innerHTML = ""
+    remainingGuessesEl.textContent = `Guesses left: ${game1.remainingGuesses}`
     statusEl.textContent = game1.statusMessage
+
+    //convert string to array so we can loop
+    const splitArray = game1.puzzle.split("")
+    splitArray.forEach((letter) => {
+        const letterSpan = document.createElement("span")
+        letterSpan.textContent = letter
+        puzzleEl.append(letterSpan)
+    })
+
+    // show solved puzzle in console
+    console.log(`Solved Puzzle: ${game1.word.join("")}`)
 }
 
 const startGame = async () => {

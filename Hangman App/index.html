@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Play Hangman</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hangman</title>
+    <meta name="description" content="Play hangman by using your keyboard to make guesses! A game made by Christopher Deleon.">
+    <link rel="icon" href="/Hangman App/images/favicon.png">
     <link rel="stylesheet" href="/Hangman App/css/styles.css">
     <script defer src="/Hangman App/src/requests.js"></script>
     <script defer src="/Hangman App/src/hangman.js"></script>
     <script defer src="/Hangman App/src/app.js"></script>
     
 </head>
+
 <body>
-    <h1>Hangman</h1>
-    <h2>A Vanilla Javascript Hangman Game</h2>
-    <p class="title">Use your keyboard to guess words!</p>
-    <div id="hold" class="hangman-wrapper">
-        <h3 id="remaining-guesses"></h3>
-        <p id="word"></p>
+    <div id="hold">
+        <div id="word" class="puzzle"></div>
+        <p id="remaining-guesses"></p>
         <p id="status"></p>
-        <button id="reset-button">Reset</button>
+        <button id="reset-button" class="button">Reset</button>
     </div>
 </body>
+
+<footer class="footer">
+    <p>Created by Christopher at <a href="https://www.topherdeleon.com/" target="_blank">Topherdeleon.com</a></p>
+</footer>
 </html>
