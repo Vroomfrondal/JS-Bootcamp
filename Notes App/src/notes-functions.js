@@ -32,19 +32,10 @@ const removeNote = (id) => {
 
 // Generate DOM structure for a new note
 const generateNoteDOM = (note) => {
-    const noteElement = document.createElement("div")
-    const textElement = document.createElement("a")
-    const button = document.createElement("button")
+    const noteElement = document.createElement("a")
+    const textElement = document.createElement("p")
+    const statusElement = document.createElement("p")
     const id = uuidv4()
-
-    // Setup the remove note button
-    button.textContent = "Del"
-    noteElement.appendChild(button)
-    button.addEventListener("click", () => {
-        removeNote(note.id)
-        saveNotes(notes)
-        renderNotes(notes, filters)
-    })
 
     // Setup the note title text
     if (note.title.length > 0) {
@@ -52,10 +43,18 @@ const generateNoteDOM = (note) => {
     } else {
         textElement.textContent = "New Note"
     }
-
-    textElement.setAttribute("href", `edit.html#${note.id}`)
-
+    textElement.classList.add("list-item__title")
     noteElement.appendChild(textElement)
+
+    // Setup the link
+    noteElement.setAttribute("href", `edit.html#${note.id}`)
+    noteElement.classList.add("list-item")
+
+    // Setup status message
+    statusElement.textContent = generateLastEdited(note.updatedAt)
+    statusElement.classList.add("list-item__subtitle")
+    noteElement.appendChild(statusElement)
+
     return noteElement
 }
 
@@ -99,18 +98,26 @@ const sortNotes = (notes, sortBy) => {
 
 // render application notes
 const renderNotes = (notes, filters) => {
+    const notesEl = document.querySelector("#filtered-notes-by-searchText")
     notes = sortNotes(notes, filters.sortBy)
     const filteredNotes = notes.filter((note) => note.title.toLowerCase().includes(filters.searchText.toLowerCase()))
 
     // clear notes div before adding new filteredNotes to list
-    document.querySelector("#filtered-notes-by-searchText").innerHTML = ""
+    notesEl.innerHTML = ""
 
-    //itterate over filtered notes array and create new element for each note title
-    filteredNotes.forEach((note) => {
-        const noteElement = generateNoteDOM(note)
-        document.querySelector("#filtered-notes-by-searchText").appendChild(noteElement)
-    })
+    // if notes exist, loop over and create new element for each note's title
+    if (filteredNotes.length > 0) {
+        filteredNotes.forEach((note) => {
+            const noteElement = generateNoteDOM(note)
+            notesEl.appendChild(noteElement)
+        })
+    } else {
+        const emptyMessage = document.createElement("p")
+        emptyMessage.textContent = "Create a new note to get started!"
+        emptyMessage.classList.add("empty-message")
+        notesEl.appendChild(emptyMessage)
+    }
 }
 
 // Generate last edited message for note-edit.js
-const generateLastEdited = () => `Last edited ${moment(note.updatedAt).fromNow()}`
+const generateLastEdited = (timeStamp) => `Last edited ${moment(timeStamp).fromNow()}`

@@ -5,11 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Take notes and never forget things again!">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <meta name="description" content="A sophisticated note taking app created by Christopher DeLeon">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="/Notes App/images/favicon.png">
     <script src="External Libaries/uuidv4.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script defer src="src/notes-functions.js"></script>
@@ -17,17 +15,31 @@
 </head>
 
 <body class="main">
-    <h1 class="Title">Notes App</h1>
-    <h2>Track your daily tasks and get organized!</h2>
-    <input id="new-note-input-textbox" type="text" placeholder="Filter notes by text">   
-    <select id="filter-by-dropdown">
-        <option value="byEdited">Sort by last edited</option>
-        <option value="byCreated">Sort by recently created</option>
-        <option value="alphabetical">Sort alphabetically</option>
-    </select>
-    <div id="filtered-notes-by-searchText"></div>
-    <button id="create-note-button">Create New Note</button>
-
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Notes App</h1>
+            <h2 class="header__subtitle">Writing things down is key</h2>
+        </div>
+    </header>
+    
+    <div class="actions">
+        <div class="actions__container">
+            <input id="new-note-input-textbox" class="input" type="text" placeholder="Filter notes by text">   
+            <select id="filter-by-dropdown" class="dropdown">
+                <option value="byEdited">Sort by last edited</option>
+                <option value="byCreated">Sort by recently created</option>
+                <option value="alphabetical">Sort alphabetically</option>
+            </select>
+        </div>
+    </div>
+    <div class="container">
+        <div id="filtered-notes-by-searchText"></div>
+        <button id="create-note-button" class="button">Create New Note</button>
+    </div>
 </body>
+
+<footer class="footer">
+    <a href="https://github.com/Vroomfrondal/JS-Bootcamp/tree/main/Notes%20App" target="_blank">Github</a> // <a href="https://www.topherdeleon.com/" target="_blank">Portfolio Website</a>
+</footer>
 
 </html>
