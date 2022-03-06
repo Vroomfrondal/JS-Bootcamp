@@ -61,15 +61,16 @@ p {
 /* footer styling */
 .footer {
     position: absolute;
+    text-align: center;
     bottom: 0;
     letter-spacing: 0.2rem;
     font-size: 0.6rem;
     opacity: 0.75;
-    padding: 3rem;
+    padding: 5rem;
     text-transform: uppercase;
 }
 
 /* recolor hyperlinks for SEO */
 a {
-    color: #a46fdd;
+    color: plum;
 }
