@@ -20,6 +20,7 @@ const saveTodos = () => {
 
 // render application todos based on filters
 const renderTodos = (todos, filters) => {
+    const todoElement = document.querySelector("#filtered-todos-by-searchText")
     // return new array with todos that have text including our filtered word
     const filteredTodos = todos.filter((todo) => {
         const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
@@ -32,13 +33,22 @@ const renderTodos = (todos, filters) => {
     const incompleteTodos = filteredTodos.filter((todo) => !todo.completed)
 
     // clear div to avoid duplicate dynamic-html element creations
-    document.querySelector("#filtered-todos-by-searchText").innerHTML = ""
-    document.querySelector("#filtered-todos-by-searchText").appendChild(generateSummaryDOM(incompleteTodos))
+    todoElement.innerHTML = ""
+    todoElement.appendChild(generateSummaryDOM(incompleteTodos))
 
-    // itterate over filtered notes array and create new element for each note title
-    filteredTodos.forEach((todo) => {
-        document.querySelector("#filtered-todos-by-searchText").appendChild(generateTodoDOM(todo))
-    })
+    // if there are todos present in local storage, render. if not. Explain to user
+    if (filteredTodos.length > 0) {
+        // itterate over filtered notes array and create new element for each note title
+        filteredTodos.forEach((todo) => {
+            document.querySelector("#filtered-todos-by-searchText").appendChild(generateTodoDOM(todo))
+        })
+    } else {
+        const messageElement = document.createElement("p")
+        messageElement.classList.add("empty-message")
+        messageElement.textContent = "Create a new task to get started"
+        todoElement.appendChild(messageElement)
+        console.log(messageElement.textContent)
+    }
 }
 
 //Remove todo (button in generateTodoDOM())
@@ -53,7 +63,8 @@ const removeTodo = (id) => {
 
 // Generate DOM elements for individual notes inside renderNotes()
 const generateTodoDOM = (todo) => {
-    const todoElement = document.createElement("div")
+    const todoElement = document.createElement("label")
+    const containerElement = document.createElement("div")
     const checkbox = document.createElement("input")
     const textElement = document.createElement("span")
     const deleteButton = document.createElement("button")
@@ -61,7 +72,7 @@ const generateTodoDOM = (todo) => {
     // Setup todo Checkbox
     checkbox.setAttribute("type", "checkbox")
     checkbox.checked = todo.completed
-    todoElement.appendChild(checkbox)
+    containerElement.appendChild(checkbox)
 
     checkbox.addEventListener("change", (e) => {
         //make todo "completed" property true when checkbox is checked
@@ -73,11 +84,17 @@ const generateTodoDOM = (todo) => {
 
     // Setup text
     textElement.textContent = todo.text
-    todoElement.appendChild(textElement)
+    containerElement.appendChild(textElement)
+
+    // Setup container
+    todoElement.classList.add("list-item")
+    containerElement.classList.add("list-item__container")
+    todoElement.appendChild(containerElement)
 
     // Setup Delete button
-    deleteButton.textContent = "Del"
-    textElement.appendChild(deleteButton)
+    deleteButton.textContent = "remove"
+    deleteButton.classList.add("button", "button--text")
+    todoElement.appendChild(deleteButton)
     deleteButton.addEventListener("click", () => {
         removeTodo(todo.id)
         saveTodos(todos)
@@ -86,10 +103,14 @@ const generateTodoDOM = (todo) => {
     return todoElement
 }
 
-// Get DOM elements for a list summary
+// Let user know how many todos they have left (from dom elements)
 function generateSummaryDOM(incompleteTodos) {
-    //Let user know how many todos they have left
     const summaryMessage = document.createElement("h2")
-    summaryMessage.textContent = `You have ${incompleteTodos.length} incomplete todos left.`
+    const plural = incompleteTodos.length === 1 ? "" : "s"
+    summaryMessage.textContent = ""
+    summaryMessage.classList.add("list-title")
+
+    summaryMessage.textContent = `You have ${incompleteTodos.length} incomplete todo${plural} left.`
+
     return summaryMessage
 }

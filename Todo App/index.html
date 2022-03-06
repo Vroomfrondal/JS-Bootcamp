@@ -1,29 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Todos</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Write down your tasks and never miss something again!">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="External Libaries/uuidv4.js"></script>
-    <script defer src="src/todo-functions.js"></script>
-    <script defer src="src/todo-main.js"></script>
-    <title>Todo</title> 
+    <link rel="icon" href="/Todo App/images/favicon.png">
+    <link rel="stylesheet" href="/Todo App/css/styles.css">
+    <script src="/Todo App/External Libaries/uuidv4.js"></script>
+    <script defer src="/Todo App/src/todo-functions.js"></script>
+    <script defer src="/Todo App/src/todo-main.js"></script>  
 </head>
+
 <body class="main">
-    <h1 class="title">Things that need done: </h1>
-    <input type="text" id="search-text" placeholder="Find note by keyword">
-    <label>
-        <input id="hide-completed-button" type="checkbox"> Hide Completed
-    </label>
-    <div id="filtered-todos-by-searchText"></div>
-    <form id="new-todo">
-        <input type="text" placeholder="New todo" name="newTodo">
-        <button type="submit">Submit</button>
-    </form>
+    <div class="header">
+        <div class="container">
+            <h1 class="header__title">Todo App</h1>
+            <h2 class="header__subtitle">What do you need to do?</h2>
+        </div>
+    </div>
+
+    <div class="actions">
+        <div class="actions__container">
+            <input type="text" class="input" id="search-text" placeholder="Find note by keyword">
+            <label class="checkbox">
+                <input id="hide-completed-button" type="checkbox"> Hide Completed
+            </label>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="filtered-todos-by-searchText"></div>
+        <form id="new-todo">
+            <input type="text" class="input" placeholder="New todo" name="newTodo">
+            <button class="button" type="submit">Submit</button>
+        </form>
+    </div>
 </body>
+<footer class="footer">
+    <a href="https://github.com/Vroomfrondal/JS-Bootcamp/tree/main/Todo%20App" target="_blank">Github</a> // <a href="https://www.topherdeleon.com/" target="_blank">Portfolio Website</a>
+</footer>
 </html>
